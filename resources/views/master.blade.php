@@ -24,17 +24,20 @@
     @include('includes.header')
     
     @include('includes.navbar')
+    @include('includes.m_navbar')
 
-    <div class="container my-6">
+    <div class="app_body">
 
         @yield('body')
-        
+
     </div>
     
     @include('includes.footer')
     
+    @include('includes.loader')
+    
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
-    <!-- <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script> -->
+    <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
     <script src="{{asset('js/tailwind.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
