@@ -7776,3 +7776,11 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/* Additional Code */
+
+.customBg{
+  background: #303AB2;
+  color: white;
+}
