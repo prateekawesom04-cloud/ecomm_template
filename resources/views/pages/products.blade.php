@@ -2,108 +2,232 @@
 
 @section('body')
 
-<div class="flex flex-row items-start justify-evenly p-6 gap-3 my-3">
-    <div class="app_filters flex flex-col items-center w-1/4">
-        <div class="mb-4 text-2xl font-semibold text-start w-full">Filters</div>
-        <div class="app_filter flex flex-col items-center w-full">
-            <div class="flex flex-row items-center justify-between w-full">
-                <h3 class="font-semibold flex flex-row items-center">
-                    <div style="background-color: rgb(199, 203, 212);" class="h-[6px] w-[6px] rounded-full mr-2"></div>    
-                    Category
-                </h3>
-                <div class="arrow_icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" style="font-size: 20px;" class=" " stroke="none"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 8.5 7 7 7-7"></path></svg>
+<div class="app_products">
+    
+    <!--================Category Product Area =================-->
+    <section class="cat_product_area section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 hidden lg:flex">
+                    @include('includes.product_filters')
                 </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="product_top_bar d-flex justify-content-between align-items-center">
+                                <div class="single_product_menu">
+                                    <p><span>10000 </span> Prodict Found</p>
+                                </div>
+                                <div class="single_product_menu d-flex">
+                                    <h5>short by : </h5>
+                                    <select>
+                                        <option data-display="Select">name</option>
+                                        <option value="1">price</option>
+                                        <option value="2">product</option>
+                                    </select>
+                                </div>
+                                <div class="single_product_menu d-flex">
+                                    <h5>show :</h5>
+                                    <div class="top_pageniation">
+                                        <ul>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="single_product_menu d-flex">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="search"
+                                            aria-describedby="inputGroupPrepend">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend"><i
+                                                    class="ti-search"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-row flex-wrap items-center w-2/3">
-        <div class="w-1/3 max-h-450px p-4 gap-3">
-            <a class="w-full flex items-center h-full" href="{{route('pages.product')}}">
-                <img class="w-full" src="https://unblast.com/wp-content/uploads/2018/11/Vertical-Product-Box-Mockup-1-1600x1200.jpg" alt="" srcset="">
-            </a>
-            <div class="flex flex-col w-full">
-                <h3 class="product_name">Bewakoof@</h3>
-                <div class="prod_description text-m">Product description</div>
-                <div class="prod_amount_details w-full flex flex-row items-center justify-start gap-3">
-                    <div class="prod_amount">$ 4</div>
-                    <div class="prod_amount_prev">$ 10</div>
-                    <div class="prod_amount_off">58%</div>
+                    <div class="row align-items-center latest_product_inner">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_1.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_2.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_3.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_4.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_5.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_6.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_7.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_8.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single_product_item">
+                                <img src="img/product/product_2.png" alt="">
+                                <div class="single_product_text">
+                                    <h4>Quartz Belt Watch</h4>
+                                    <h3>$150.00</h3>
+                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="pageination">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <i class="ti-angle-double-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <i class="ti-angle-double-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="w-1/3 max-h-450px p-4 gap-3">
-            <a class="w-full flex items-center h-full" href="{{route('pages.product')}}">
-                <img class="w-full" src="https://unblast.com/wp-content/uploads/2018/11/Vertical-Product-Box-Mockup-1-1600x1200.jpg" alt="" srcset="">
-            </a>
-            <div class="flex flex-col w-full">
-                <h3 class="product_name">Bewakoof@</h3>
-                <div class="prod_description text-m">Product description</div>
-                <div class="prod_amount_details w-full flex flex-row items-center justify-start gap-3">
-                    <div class="prod_amount">$ 4</div>
-                    <div class="prod_amount_prev">$ 10</div>
-                    <div class="prod_amount_off">58%</div>
+    </section>
+    <!--================End Category Product Area =================-->
+
+    
+    <!-- product_list part start-->
+    <section class="product_list best_seller">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="section_tittle text-center">
+                        <h2>Best Sellers <span>shop</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-12">
+                    <div class="best_product_slider owl-carousel">
+                        <div class="single_product_item">
+                            <img src="img/product/product_1.png" alt="">
+                            <div class="single_product_text">
+                                <h4>Quartz Belt Watch</h4>
+                                <h3>$150.00</h3>
+                            </div>
+                        </div>
+                        <div class="single_product_item">
+                            <img src="img/product/product_2.png" alt="">
+                            <div class="single_product_text">
+                                <h4>Quartz Belt Watch</h4>
+                                <h3>$150.00</h3>
+                            </div>
+                        </div>
+                        <div class="single_product_item">
+                            <img src="img/product/product_3.png" alt="">
+                            <div class="single_product_text">
+                                <h4>Quartz Belt Watch</h4>
+                                <h3>$150.00</h3>
+                            </div>
+                        </div>
+                        <div class="single_product_item">
+                            <img src="img/product/product_4.png" alt="">
+                            <div class="single_product_text">
+                                <h4>Quartz Belt Watch</h4>
+                                <h3>$150.00</h3>
+                            </div>
+                        </div>
+                        <div class="single_product_item">
+                            <img src="img/product/product_5.png" alt="">
+                            <div class="single_product_text">
+                                <h4>Quartz Belt Watch</h4>
+                                <h3>$150.00</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="w-1/3 max-h-450px p-4 gap-3">
-            <a class="w-full flex items-center h-full" href="{{route('pages.product')}}">
-                <img class="w-full" src="https://unblast.com/wp-content/uploads/2018/11/Vertical-Product-Box-Mockup-1-1600x1200.jpg" alt="" srcset="">
-            </a>
-            <div class="flex flex-col w-full">
-                <h3 class="product_name">Bewakoof@</h3>
-                <div class="prod_description text-m">Product description</div>
-                <div class="prod_amount_details w-full flex flex-row items-center justify-start gap-3">
-                    <div class="prod_amount">$ 4</div>
-                    <div class="prod_amount_prev">$ 10</div>
-                    <div class="prod_amount_off">58%</div>
-                </div>
-            </div>
-        </div>
-        <div class="w-1/3 max-h-450px p-4 gap-3">
-            <a class="w-full flex items-center h-full" href="{{route('pages.product')}}">
-                <img class="w-full" src="https://unblast.com/wp-content/uploads/2018/11/Vertical-Product-Box-Mockup-1-1600x1200.jpg" alt="" srcset="">
-            </a>
-            <div class="flex flex-col w-full">
-                <h3 class="product_name">Bewakoof@</h3>
-                <div class="prod_description text-m">Product description</div>
-                <div class="prod_amount_details w-full flex flex-row items-center justify-start gap-3">
-                    <div class="prod_amount">$ 4</div>
-                    <div class="prod_amount_prev">$ 10</div>
-                    <div class="prod_amount_off">58%</div>
-                </div>
-            </div>
-        </div>
-        <div class="w-1/3 max-h-450px p-4 gap-3">
-            <a class="w-full flex items-center h-full" href="{{route('pages.product')}}">
-                <img class="w-full" src="https://unblast.com/wp-content/uploads/2018/11/Vertical-Product-Box-Mockup-1-1600x1200.jpg" alt="" srcset="">
-            </a>
-            <div class="flex flex-col w-full">
-                <h3 class="product_name">Bewakoof@</h3>
-                <div class="prod_description text-m">Product description</div>
-                <div class="prod_amount_details w-full flex flex-row items-center justify-start gap-3">
-                    <div class="prod_amount">$ 4</div>
-                    <div class="prod_amount_prev">$ 10</div>
-                    <div class="prod_amount_off">58%</div>
-                </div>
-            </div>
-        </div>
-        <div class="w-1/3 max-h-450px p-4 gap-3">
-            <a class="w-full flex items-center h-full" href="{{route('pages.product')}}">
-                <img class="w-full" src="https://unblast.com/wp-content/uploads/2018/11/Vertical-Product-Box-Mockup-1-1600x1200.jpg" alt="" srcset="">
-            </a>
-            <div class="flex flex-col w-full">
-                <h3 class="product_name">Bewakoof@</h3>
-                <div class="prod_description text-m">Product description</div>
-                <div class="prod_amount_details w-full flex flex-row items-center justify-start gap-3">
-                    <div class="prod_amount">$ 4</div>
-                    <div class="prod_amount_prev">$ 10</div>
-                    <div class="prod_amount_off">58%</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
+    <!-- product_list part end-->
+
 </div>
 
 @endsection

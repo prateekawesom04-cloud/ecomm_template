@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/themify-icons.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('css/lightslider.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/price_rangs.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -23,19 +24,19 @@
 
 </head>
 <body>
+    <div class="app_body overflow-y-auto h-[100vh]" style="display:none;">
     @include('includes.header')
     
     @include('includes.navbar')
     @include('includes.m_navbar')
 
-    <div class="app_body">
 
         @yield('body')
 
-    </div>
     
     @include('includes.footer')
     
+    </div>
     @include('includes.loader')
     
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
@@ -44,6 +45,7 @@
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{asset('js/lightslider.min.js')}}"></script>
     <script src="{{asset('js/swiper.min.js')}}"></script>
     <script src="{{asset('js/masonry.pkgd.js')}}"></script>
     <script src="{{asset('js/owl.carousel.min.js')}}"></script>
@@ -56,9 +58,21 @@
     <script src="{{asset('js/jquery.form.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/mail-script.js')}}"></script>
+    <script src="{{asset('js/stellar.js')}}"></script>
+    <script src="{{asset('js/price_rangs.js')}}"></script>
+    <script src="{{asset('js/theme.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
 
     @include('includes.js')
+    
+    <script>
+        $(document).ready(function(){
+            setTimeout(() => {
+                $('.app_body').show();
+                $('.app_loader').fadeOut(500);
+            }, 2000);
+        })
+    </script>
     
     @yield('js')
 

@@ -17,7 +17,7 @@
                                     Brand
                                 </a>
 
-                                <div class="app_search flex flex-row items-center p-3 bg-gray-100 w-64 h-6 rounded-md gap-4">
+                                <div class="app_search flex-row items-center p-3 bg-gray-100 w-64 h-6 rounded-md gap-4 hidden lg:flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" style="font-size: 24px;" class="w-1/6" stroke="none"><path stroke="#303030" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.926 11.338a7.588 7.588 0 1 1-15.176 0 7.588 7.588 0 0 1 15.176 0Zm-1.692 5.896L21 21"></path></svg>
                                     <input class="bg-transparent border-none outline-none w-5/6" type="text" name="search" placeholder="Search by Products">
                                 </div>
