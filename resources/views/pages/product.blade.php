@@ -62,6 +62,8 @@
 
   @include('includes.p_description')
 
+  @include('includes.bestSellers')
+
 </div>
 
 @endsection

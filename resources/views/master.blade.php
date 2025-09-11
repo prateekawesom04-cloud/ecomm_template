@@ -7,6 +7,7 @@
 
     <!-- <link rel="icon" href="img/favicon.png"> -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css')}}/tailwind.min.css">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/nice-select.css')}}">

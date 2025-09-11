@@ -12,7 +12,7 @@
                         </button>
                         <div class="flex flex-row justify-between items-center flex-grow">
                             <div class="flex flex-row items-center justify-start gap-1">
-                                <a class="navbar-brand" href="index.html"> 
+                                <a class="navbar-brand" href="{{route('pages.index')}}"> 
                                     <!-- <img src="img/logo.png" alt="logo"> -->
                                     Brand
                                 </a>
