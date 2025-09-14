@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ProductController;
 
 
 // Route::get('/{slug}', function ($slug) {
@@ -11,25 +13,15 @@ use Illuminate\Support\Facades\Route;
 //     }
 // });
 
-Route::get('', function () {
-    return view('pages.index'); 
-})->name('pages.index');
+Route::get('', [IndexController::class,'index'])->name('pages.index');
+Route::get('products', [ProductController::class,'products'])->name('pages.products');
+Route::get('product', [ProductController::class,'product'])->name('pages.product');
+Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
+Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
 
 Route::get('login', function () {
-    return view('login'); 
+    return view('pages.login'); 
 })->name('pages.login');
-
-Route::get('products', function () {
-    return view('pages.products'); 
-})->name('pages.products');
-
-Route::get('product', function () {
-    return view('pages.product'); 
-})->name('pages.product');
-
-Route::get('cart', function () {
-    return view('pages.cart'); 
-})->name('pages.cart');
 
 Route::get('userInfo', function () {
     return view('pages.userInfo'); 
@@ -38,3 +30,12 @@ Route::get('userInfo', function () {
 Route::get('singleCheckout', function () {
     return view('pages.singleCheckout'); 
 })->name('pages.singleCheckout');
+
+Route::get('orderDetail', function () {
+    return view('pages.orderDetail'); 
+})->name('pages.orderDetail');
+
+Route::get('session', function () {
+    return session()->all();
+});
+

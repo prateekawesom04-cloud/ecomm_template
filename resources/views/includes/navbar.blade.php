@@ -1,6 +1,6 @@
 
     <!--::header part start::-->
-    <header class="main_menu home_menu !static w-full">
+    <header class="main_menu home_menu !static w-full py-1">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -25,13 +25,12 @@
 
                             <div class="flex flex-row items-center justify-end gap-1">
                                 <div class="main-menu-item hidden lg:flex basis-auto navbar-collapse" id="ds_navLinks">
-                                    <a href="{{route('pages.index')}}" class="btn customBg p-2 my-1 rounded-0">Login/Sign Up</a>
+                                    <a href="{{route('pages.login')}}" class="btn customBg p-2 my-1 rounded-0">Login/Sign Up</a>
                                 </div>
                                 <div class="hearer_icon d-flex">
-                                    <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                                     <a href=""><i class="ti-heart"></i></a>
                                     <div class="dropdown cart">
-                                        <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                                        <a class="dropdown-toggle" href="{{route('pages.cart')}}" id="navbarDropdown3" role="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-cart-plus"></i>
                                         </a>
