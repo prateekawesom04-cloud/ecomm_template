@@ -8,10 +8,10 @@ class ProductController extends Controller
 {
     //
     public function products(Request $request){
-        return view('pages.products',compact('products'));
+        return view('pages.products');
     }
     
-    public function product(Request $request, $productid){
+    public function product(Request $request){
         return view('pages.product');
     }
     
