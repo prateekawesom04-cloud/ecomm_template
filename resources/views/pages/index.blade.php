@@ -56,7 +56,7 @@
                             <input type="text" class="form-control" placeholder="enter email address"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">book now</a>
+                                <a href="#" class="input-group-text" id="basic-addon2">book now</a>
                             </div>
                         </div>
                     </div>

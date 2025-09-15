@@ -23,6 +23,10 @@ Route::get('login', function () {
     return view('pages.login'); 
 })->name('pages.login');
 
+Route::get('register', function () {
+    return view('pages.register'); 
+})->name('pages.register');
+
 Route::get('userInfo', function () {
     return view('pages.userInfo'); 
 })->name('pages.userInfo');
