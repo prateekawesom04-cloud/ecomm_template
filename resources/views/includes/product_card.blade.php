@@ -9,6 +9,6 @@
                                                 <h4>{{substr($product->title,0,9)}} ...</h4>
                                             </a>
                                             <h3>$ {{$product->price}}</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="{{route('pages.singleCheckout')}}" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>

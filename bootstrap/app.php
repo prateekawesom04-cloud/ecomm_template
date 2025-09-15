@@ -12,6 +12,18 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+        $middleware->web(append: [
+            \App\Http\Middleware\GlobalMiddleware::class,
+        ]);
+
+        $middleware->alias([
+            'auth_middleware' => \App\Http\Middleware\AuthMiddleware::class,
+            'auth_check_middleware' => \App\Http\Middleware\AuthCheckMiddleware::class,
+            'global_middleware' => \App\Http\Middleware\GlobalMiddleware::class,
+            'admin_auth_middleware' => \App\Http\Middleware\AdminAuthMiddleware::class,
+            'admin_auth_check_middleware' => \App\Http\Middleware\AdminAuthCheckMiddleware::class,
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

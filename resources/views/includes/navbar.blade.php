@@ -28,7 +28,7 @@
                                     <a href="{{route('pages.login')}}" class="btn customBg p-2 my-1 rounded-0">Login/Sign Up</a>
                                 </div>
                                 <div class="hearer_icon d-flex">
-                                    <a href=""><i class="ti-heart"></i></a>
+                                    <a href="{{route('pages.favourites')}}"><i class="ti-heart"></i></a>
                                     <div class="dropdown cart">
                                         <a class="dropdown-toggle" href="{{route('pages.cart')}}" id="navbarDropdown3">
                                             <i class="fas fa-cart-plus"></i>

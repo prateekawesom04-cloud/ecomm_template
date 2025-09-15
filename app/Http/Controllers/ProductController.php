@@ -8,8 +8,6 @@ class ProductController extends Controller
 {
     //
     public function products(Request $request){
-        $products = file_get_contents('https://fakestoreapi.com/products');
-        $products = json_decode($products);
         return view('pages.products',compact('products'));
     }
     

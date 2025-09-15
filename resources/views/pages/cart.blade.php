@@ -116,4 +116,6 @@
   </section>
   <!--================End Cart Area =================-->
 
+    @include('includes.bestSellers')
+    
 @endsection

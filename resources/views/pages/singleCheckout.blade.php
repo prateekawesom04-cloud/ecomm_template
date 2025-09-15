@@ -56,4 +56,6 @@
   </section>
   <!--================End Cart Area =================-->
 
+  
+
 @endsection
