@@ -17,11 +17,11 @@ class ProductController extends Controller
         return view('pages.product');
     }
     
-    public function cart(Request $request, $productid){
+    public function cart(Request $request){
         return view('pages.cart');
     }
     
-    public function favourites(Request $request, $productid){
+    public function favourites(Request $request){
         return view('pages.favourites');
     }
     

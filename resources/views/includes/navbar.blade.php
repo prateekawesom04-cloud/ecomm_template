@@ -30,8 +30,7 @@
                                 <div class="hearer_icon d-flex">
                                     <a href=""><i class="ti-heart"></i></a>
                                     <div class="dropdown cart">
-                                        <a class="dropdown-toggle" href="{{route('pages.cart')}}" id="navbarDropdown3" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="dropdown-toggle" href="{{route('pages.cart')}}" id="navbarDropdown3">
                                             <i class="fas fa-cart-plus"></i>
                                         </a>
                                         <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -2,7 +2,7 @@
                                 
                                     <div class="single_product_item">
                                         <div class="img_div h-300px">
-                                            <img class="w-full" src="{{$product->image}}" alt="">
+                                            <img class="" src="{{$product->image}}" alt="">
                                         </div>
                                         <div class="single_product_text">
                                             <a href="{{route('pages.product')}}">

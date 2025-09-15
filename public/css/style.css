@@ -7797,7 +7797,12 @@ h6 {
   max-height: 250px;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
+}
+
+.img_div img {
+  width: 170px !important;
 }
 
 html {overflow: -moz-scrollbars-none;}
