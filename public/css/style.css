@@ -7840,6 +7840,14 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
    margin: 0 5px; 
   }
 
+.app_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .app_col{
   display: flex;
   flex-direction: column;
@@ -7885,6 +7893,9 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
   border-radius: .25rem;
 }
 
+.app_body div {
+  scrollbar-width: none;
+}
 
 
 /* Theme CSS */

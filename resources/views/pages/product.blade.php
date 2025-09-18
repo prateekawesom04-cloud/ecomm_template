@@ -8,25 +8,10 @@
   <div class="product_image_area section_padding">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
-        <div class="col-lg-7 col-xl-7">
-          <div class="product_slider_img">
-            <div id="vertical">
-              <div data-thumb="img/product/single-product/product_1.png">
-                <img src="img/product/single-product/product_1.png" />
-              </div>
-              <div data-thumb="img/product/single-product/product_1.png">
-                <img src="img/product/single-product/product_1.png" />
-              </div>
-              <div data-thumb="img/product/single-product/product_1.png">
-                <img src="img/product/single-product/product_1.png" />
-              </div>
-              <div data-thumb="img/product/single-product/product_1.png">
-                <img src="img/product/single-product/product_1.png" />
-              </div>
-            </div>
-          </div>
+        <div class="col-md-8">
+          @include('includes.product_img')
         </div>
-        <div class="col-lg-5 col-xl-4">
+        <div class="col-md-4">
           <div class="s_product_text">
             
             <h3>Faded SkyBlu Denim Jeans</h3>
