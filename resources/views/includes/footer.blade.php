@@ -1,7 +1,7 @@
 
     <!--::footer_part start::-->
     <footer class="footer_part py-1 mt-0">
-        <!-- <div class="container">
+        <div class="container">
             <div class="row justify-content-around">
                 <div class="col-sm-6 col-lg-2">
                     <div class="single_footer_part">
@@ -68,7 +68,7 @@
                 </div>
             </div>
             
-        </div> -->
+        </div>
         <div class="copyright_part mt-0">
             <div class="container">
                 <div class="row">

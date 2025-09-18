@@ -2392,12 +2392,18 @@ ul {
 .dropdown-menu {
   border: 0px solid rgba(0, 0, 0, 0.15) !important;
   background-color: #fafafa;
+  /* display: block; */
 }
 
 /* line 290, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
-.dropdown:hover .dropdown-menu {
+.app_mega-items:hover .dropdown-menu {
   display: block;
 }
+
+.app_mega_sub_items{
+  padding: 2px;
+}
+
 
 /* line 297, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
 .home_menu .menu_btn:hover a {
@@ -7779,6 +7785,9 @@ h6 {
 /*# sourceMappingURL=style.css.map */
 
 
+
+
+
 /* Additional Code */
 
 .customBg{
@@ -7827,10 +7836,62 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
   background: #555; 
 }
 
+.nav-link {
+   margin: 0 5px; 
+  }
+
+.app_col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app_menu {
+  /* max-height: 50vh; */
+}
+.app_mega-items {
+  border-bottom: 2px;
+}
+
+.app_mega-items:hover .app_menu{
+  display: block;
+}
+
+.app_mega-items:hover {
+  border-bottom: 2px solid #8f9195;
+}
+
+.mega-dropdown-menu{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: .5rem 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: .125rem 0 0;
+  margin-top: 0.125rem;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+}
 
 
 
+/* Theme CSS */
 
-
-
+.app_light {
+  .nav-link {
+    color: #333;
+  }
+}
 

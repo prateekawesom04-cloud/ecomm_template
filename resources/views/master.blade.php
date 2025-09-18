@@ -29,7 +29,7 @@
     @include('includes.header')
     
     @include('includes.navbar')
-    @include('includes.m_navbar')
+    @include('includes.megaNavbar')
 
 
         @yield('body')
@@ -64,6 +64,7 @@
     <script src="{{asset('js/theme.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
 
+    @include('includes.ajaxCall')
     @include('includes.js')
     
     <script>
@@ -71,7 +72,7 @@
             setTimeout(() => {
                 $('.app_body').show();
                 $('.app_loader').fadeOut(500);
-            }, 2000);
+            }, 1000);
         })
     </script>
     
