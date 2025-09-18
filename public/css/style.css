@@ -7860,6 +7860,8 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
 }
 .app_mega-items {
   border-bottom: 2px;
+  width: 13%;
+  min-width: min-content;
 }
 
 .app_mega-items:hover .app_menu{
@@ -7895,6 +7897,10 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
 
 .app_body div {
   scrollbar-width: none;
+}
+
+.app_body {
+  scrollbar-width: thin;
 }
 
 

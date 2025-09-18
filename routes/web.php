@@ -27,9 +27,13 @@ Route::get('register', function () {
     return view('pages.register'); 
 })->name('pages.register');
 
-Route::get('userInfo', function () {
-    return view('pages.userInfo'); 
-})->name('pages.userInfo');
+Route::get('aboutus', function () {
+    return view('pages.aboutus'); 
+})->name('pages.aboutus');
+
+Route::get('contactus', function () {
+    return view('pages.contactus'); 
+})->name('pages.contactus');
 
 Route::get('singleCheckout', function () {
     return view('pages.singleCheckout'); 

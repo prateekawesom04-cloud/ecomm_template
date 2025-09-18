@@ -78,22 +78,14 @@
                     <p class="mb-0 list-group-item text-uppercase font-weight-bold">
                       Iste quaerato
                     </p>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Cras justo odio</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Est iure</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Praesentium</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Laboriosam</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Dolor sit</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Amet consectetur</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Cras justo odio</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Adipiscing elit</a>
+                    <a href="" class="app_mega_sub_items">Cras justo odio</a>
+                    <a href="" class="app_mega_sub_items">Est iure</a>
+                    <a href="" class="app_mega_sub_items">Praesentium</a>
+                    <a href="" class="app_mega_sub_items">Laboriosam</a>
+                    <a href="" class="app_mega_sub_items">Dolor sit</a>
+                    <a href="" class="app_mega_sub_items">Amet consectetur</a>
+                    <a href="" class="app_mega_sub_items">Cras justo odio</a>
+                    <a href="" class="app_mega_sub_items">Adipiscing elit</a>
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -101,22 +93,14 @@
                     <p class="mb-0 list-group-item text-uppercase font-weight-bold">
                       Cras justo odio
                     </p>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Saepe</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Vel alias</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Sunt doloribus</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Cum dolores</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Perspiciatis quo</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Cras justo odio</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Laudantium maiores</a>
-                    <a href="" class="app_mega_sub_items"><i
-                        class="fas fa-caret-right pe-2"></i>Provident dolor</a>
+                    <a href="" class="app_mega_sub_items">Saepe</a>
+                    <a href="" class="app_mega_sub_items">Vel alias</a>
+                    <a href="" class="app_mega_sub_items">Sunt doloribus</a>
+                    <a href="" class="app_mega_sub_items">Cum dolores</a>
+                    <a href="" class="app_mega_sub_items">Perspiciatis quo</a>
+                    <a href="" class="app_mega_sub_items">Cras justo odio</a>
+                    <a href="" class="app_mega_sub_items">Laudantium maiores</a>
+                    <a href="" class="app_mega_sub_items">Provident dolor</a>
                   </div>
                 </div>
               </div>
