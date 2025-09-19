@@ -53,7 +53,7 @@
                     <div class="row align-items-center latest_product_inner">
                         @foreach($products as $k=>$product)
                         <div class="col-lg-4 col-sm-6">
-                                @include('includes.product_card')
+                                @include('includes.product_card2')
                             </div>
                             @endforeach
                         <div class="col-lg-12">

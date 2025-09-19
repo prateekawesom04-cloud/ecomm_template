@@ -20,6 +20,15 @@ class GlobalMiddleware
     {
         
         $products = file_get_contents('https://fakestoreapi.com/products');
+
+        // if ($contents === FALSE) {
+        //     // Handle the error, e.g., file not found, permission denied, etc.
+        //     echo "Error: Could not read file '{$filename}'.";
+        // } else {
+        //     // File contents successfully retrieved
+        //     echo "File contents: {$contents}";
+        // }
+
         $products = json_decode($products);
         View::share('products',$products);
         return $next($request);

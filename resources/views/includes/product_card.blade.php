@@ -2,7 +2,9 @@
                                 
                                     <div class="single_product_item mb-5">
                                         <div class="img_div">
-                                            <a href="{{route('pages.product')}}"><img class="" src="{{$product->image}}" alt="">
+                                            <a href="{{route('pages.product')}}">
+                                                <img class="" src="{{$product->image}}" alt="">
+                                            </a>
                                         </div>
                                         <div class="single_product_text">
                                             <a href="{{route('pages.product')}}">
