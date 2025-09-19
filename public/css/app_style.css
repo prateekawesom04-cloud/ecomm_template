@@ -1,7 +1,94 @@
-/* border color: #1a1a1a; */
+/* light theme */
+
+    /* border color: #1a1a1a; */
+    /* content_box background color: #fff */
+    /* normal text color: #000 */
+    /* special text color: #929391 */
 
 
-
-.footer_part {
-    border-top: 2px solid #1a1a1a;
+*,p {
+    font-size: 14px;    
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 300;
 }
+    
+h1 {
+    font-weight: 300;
+}
+
+.app_span_color {
+    color: #303AB2;
+}
+
+.app_light {
+    color: #000;
+    a:hover {
+        color: #303AB2;
+    }
+    a.app_btn {
+        background: #303AB2;
+        padding: 1rem 2rem;
+    }
+
+    h1,h2,h3,h4,h5,h6,p,label {
+        color: #000;
+    }
+
+    .footer_part {
+        border-top: 2px solid #1a1a1a;
+    }
+
+    .app_content_box {
+        background: #fff;
+    }
+
+    .app_spl_text {
+        color: #929391;
+    }
+}
+
+.app_input_box{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+input, input:hover, input:focus {
+    border: none;
+    background: none;
+}
+
+.app_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app_col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app_custom_modal {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+
+
+
+
+
+
+

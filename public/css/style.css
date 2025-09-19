@@ -7840,20 +7840,6 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
    margin: 0 5px; 
   }
 
-.app_row{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.app_col{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .app_menu {
   /* max-height: 50vh; */

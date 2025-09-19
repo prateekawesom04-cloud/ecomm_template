@@ -31,4 +31,13 @@
         },300);
     });
 
+    
+    $('.app_login').click(function(){
+        $('.app_custom_modal').show();
+    });
+    $('.app_custom_modal .btn-close').click(()=>{
+        $('.app_custom_modal').hide();
+    })
+
+
 </script>

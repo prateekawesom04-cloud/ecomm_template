@@ -18,32 +18,40 @@
     <link rel="stylesheet" href="{{asset('css/lightslider.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/price_rangs.css')}}">
+    <link rel="stylesheet" href="{{asset('css/montserrat_font.css')}}">
     <!-- <link rel="stylesheet" href="{{asset('css')}}/tailwind.min.css"> -->
     <!-- <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
     @yield('head')
 
 </head>
-<body>
+<body class="app_light">
     
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css')}}/tailwind.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/app_style.css')}}">
-    <div class="app_body overflow-y-auto h-[100vh]" style="display:none;">
-    @include('includes.header')
-    
-    @include('includes.navbar')
-    @include('includes.megaNavbar')
+    <div class="app_body app_light" style="display:none;">
+
+        <div class="app_header_part">
+            @include('includes.header')
+            
+            @include('includes.navbar')
+            @include('includes.megaNavbar')
+        </div>
 
 
-        @yield('body')
+            @yield('body')
 
-    
-    @include('includes.footer')
+        
+        @include('includes.footer')
     
     </div>
     @include('includes.loader')
+    @include('includes.appModal')
     
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
     <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>

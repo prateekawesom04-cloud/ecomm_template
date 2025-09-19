@@ -5,11 +5,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <button class="navbar-toggler !static w-min" type="button" data-toggle="collapse"
+                        <!-- <button class="navbar-toggler !static w-min" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
+                        </button> -->
                         <div class="flex flex-row justify-between items-center flex-grow">
                             <div class="flex flex-row items-center justify-start gap-1">
                                 <a class="navbar-brand" href="{{route('pages.index')}}"> 
@@ -25,7 +25,7 @@
 
                             <div class="flex flex-row items-center justify-end gap-1">
                                 <div class="main-menu-item hidden lg:flex basis-auto navbar-collapse" id="ds_navLinks">
-                                    <a href="{{route('pages.login')}}" class="btn customBg p-2 my-1 rounded-0">Login/Sign Up</a>
+                                    <a href="javascript:void(0)" class="btn customBg p-2 my-1 rounded-0 app_login">Login/Sign Up</a>
                                 </div>
                                 <div class="hearer_icon d-flex">
                                     <a href="{{route('pages.favourites')}}"><i class="ti-heart"></i></a>
