@@ -6,11 +6,13 @@
     /* special text color: #929391 */
 
 
-*,p {
-    font-size: 14px;    
+*,p,h1,h2,h3,h4,h5,h6,label,button,a {  
     font-family: 'Figtree';
     font-style: normal;
     font-weight: 300;
+}
+*,p,a,span {
+    font-size: 12px;  
 }
     
 h1 {
