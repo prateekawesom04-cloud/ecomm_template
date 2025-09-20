@@ -8,10 +8,15 @@
   <div class="product_image_area section_padding">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
-        <div class="col-md-8">
-          @include('includes.product_img')
+        <div class="col-md-6 col-lg-8">
+          <div class="app_desktop_product_img hidden lg:block">
+            @include('includes.product_img')
+          </div>
+          <div class="app_mobile_product_img block lg:hidden">
+            @include('includes.product_slider')
+          </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6 col-lg-4">
           <div class="s_product_text">
             
             <h3>Faded SkyBlu Denim Jeans</h3>
