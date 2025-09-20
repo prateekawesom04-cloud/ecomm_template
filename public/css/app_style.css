@@ -24,6 +24,9 @@ h1 {
     font-weight: 300;
 }
 
+.slim_header a {
+    font-size: 10px;
+}
 .app_span_color {
     color: #303AB2;
 }
