@@ -1,4 +1,4 @@
-<div class="h-5 bg-slate-300 md:flex justify-around items-center slim_header">
+<div class="h-5 bg-slate-300 lg:flex justify-around items-center slim_header hidden">
     <div class="container text-[9px]">
         <div class="flex justify-around">
             <div class="flex flex-row justify-start w-1/2 gap-3">

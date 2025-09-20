@@ -24,7 +24,7 @@
     $('.app_scroll_arrow').click(function(e){
 
         let scroll_arrow = $(this);
-        let currentScroller = $(this).parents('.app_product_card').find('.app_scroller');
+        let currentScroller = $(this).parents('.app_scroller_p').find('.app_scroller');
         
         $(currentScroller).animate({
             scrollLeft: '+='+$(scroll_arrow).attr('data-scroll')+currentScroller.width()

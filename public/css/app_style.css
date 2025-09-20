@@ -95,7 +95,9 @@ input, input:hover, input:focus {
     z-index: 999;
 }
 
-
+.app_scroll_arrow_section {
+    z-index: 999;
+}
 
 
 

@@ -12,7 +12,15 @@
           <div class="app_desktop_product_img hidden lg:block">
             @include('includes.product_img')
           </div>
-          <div class="app_mobile_product_img block lg:hidden">
+          <div class="app_mobile_product_img block lg:hidden relative app_scroller_p">
+            <div class="app_scroll_arrow_section d-flex flex-row gap-1 justify-between items-center absolute w-full h-full top-0 px-5">
+                <span href="javascript:void(0)" class="app_scroll_arrow d-flex items-center justify-content-center bg-[#212529] rounded-circle" data-scroll="-" style="height: 22px;width: 22px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M15 6l-6 6l6 6"></path></svg>
+                </span>
+                <span href="javascript:void(0)" class="app_scroll_arrow d-flex align-items-center justify-content-center bg-[#212529] text-success rounded-circle" data-scroll="+" style="height: 22px;width: 22px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 6l6 6l-6 6"></path></svg>
+                </span>
+            </div>
             @include('includes.product_slider')
           </div>
         </div>
