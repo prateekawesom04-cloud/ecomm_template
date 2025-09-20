@@ -7,11 +7,9 @@
                                             </a>
                                         </div>
                                         <div class="single_product_text">
+                                            <h3>$ {{$product->price}}</h3>
                                             <a href="{{route('pages.product')}}">
                                                 <h4>{{substr($product->title,0,9)}} ...</h4>
                                             </a>
-                                            <h3>$ {{$product->price}}</h3>
-                                            <a href="javascript:void(0)" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                            <a href="{{route('pages.singleCheckout')}}" class="add_cart"> buy now</a>
                                         </div>
                                     </div>
