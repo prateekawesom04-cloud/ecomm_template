@@ -5,7 +5,7 @@
 <div class="app_product py-3">
     
   <!--================Single Product Area =================-->
-  <div class="product_image_area section_padding">
+  <div class="product_image_area">
     <div class="container">
       <div class="row s_product_inner justify-content-between">
         <div class="col-md-6 col-lg-8">
