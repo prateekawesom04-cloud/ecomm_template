@@ -3,7 +3,7 @@
 
     @foreach([1,2,3,4] as $i)
 
-    <img src="https://picsum.photos/id/23{{$i}}/700/300" alt="" srcset="" class="min-w-full">
+    <img src="https://picsum.photos/id/23{{$i}}/400/500" alt="" srcset="" class="min-w-full">
     
     @endforeach
 </div>
