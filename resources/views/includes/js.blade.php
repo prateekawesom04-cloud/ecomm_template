@@ -37,7 +37,10 @@
     });
     $('.app_custom_modal .btn-close').click(()=>{
         $('.app_custom_modal').hide();
-    })
+    });
 
+    $('.app_product_heart').click(function(){
+        $(this).toggleClass('active');
+    })
 
 </script>

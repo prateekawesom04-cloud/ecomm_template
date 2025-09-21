@@ -99,7 +99,13 @@ input, input:hover, input:focus {
     z-index: 999;
 }
 
+.app_product_heart svg{
+    fill:transparent;
+}
 
+.app_product_heart.active svg{
+    fill:#303AB2;
+}
 
 
 

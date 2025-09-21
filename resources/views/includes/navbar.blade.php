@@ -24,7 +24,7 @@
                             </div>
 
                             <div class="flex flex-row items-center justify-end gap-1">
-                                <div class="main-menu-item hidden lg:flex basis-auto navbar-collapse" id="ds_navLinks">
+                                <div class="main-menu-item basis-autoe" id="ds_navLinks">
                                     <a href="javascript:void(0)" class="btn customBg p-2 my-1 rounded-0 app_login">Login/Sign Up</a>
                                 </div>
                                 <div class="hearer_icon d-flex">
