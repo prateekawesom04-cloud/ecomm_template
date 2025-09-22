@@ -517,7 +517,7 @@ ul {
   color: #fff;
   text-transform: uppercase;
   font-weight: 400;
-  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+  /* box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18); */
   border: 1px solid #303ab2;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -4075,7 +4075,7 @@ ul {
   background: #303ab2;
   color: #fff;
   border-color: #303ab2;
-  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+  /* box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18); */
 }
 
 /* line 813, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -5511,7 +5511,7 @@ ul {
 /* line 2042, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .btn_3 {
   padding: 13px 36px;
-  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+  /* box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18); */
   border: 1px solid #303ab2;
 }
 
@@ -7853,8 +7853,8 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
   display: block;
 }
 
-.app_mega-items:hover {
-  border-bottom: 2px solid #8f9195;
+.app_mega-items:hover p {
+  border-bottom: 3px solid #303AB2;
 }
 
 .mega-dropdown-menu{
