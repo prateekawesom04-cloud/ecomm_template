@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('product_id')->nullable();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->decimal('price',8,2)->default('0.00');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('image_url')->nullable();
             $table->boolean('is_active')->nullable();
             $table->string('description')->nullable();
+            $table->json('additional_data')->nullable();
             $table->timestamps();
         });
     }
