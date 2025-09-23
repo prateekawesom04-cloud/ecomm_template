@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('product_id')->nullable();
             $table->string('name')->nullable();
-            $table->text('description')->nullable();
             $table->decimal('price',8,2)->default('0.00');
             $table->integer('stock_quantity')->nullable();
             $table->integer('category_id')->nullable();
