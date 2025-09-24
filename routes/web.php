@@ -19,13 +19,13 @@ Route::get('product', [ProductController::class,'product'])->name('pages.product
 Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
 Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
 
-Route::get('login', function () {
-    return view('pages.login'); 
-})->name('pages.login');
+// Route::get('login', function () {
+//     return view('pages.login'); 
+// })->name('pages.login');
 
-Route::get('register', function () {
-    return view('pages.register'); 
-})->name('pages.register');
+// Route::get('register', function () {
+//     return view('pages.register'); 
+// })->name('pages.register');
 
 Route::get('aboutus', function () {
     return view('pages.aboutus'); 
@@ -47,3 +47,19 @@ Route::get('session', function () {
     return session()->all();
 });
 
+
+
+
+
+
+
+
+// Admin Routes
+
+Route::prefix('admin')->group(function () {
+    
+    Route::get('', function () {
+        return view('admin.pages.index'); 
+    })->name('admin.index');
+    
+});

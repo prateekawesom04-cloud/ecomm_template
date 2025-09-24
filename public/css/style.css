@@ -7853,7 +7853,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,div::-webkit-scrollbar-thumb:hov
   display: block;
 }
 
-.app_mega-items:hover p {
+.app_mega-items:hover p.category {
   border-bottom: 3px solid #303AB2;
 }
 

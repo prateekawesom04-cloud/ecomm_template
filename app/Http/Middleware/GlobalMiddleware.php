@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\Product;
+
 class GlobalMiddleware
 {
     /**
@@ -21,6 +23,7 @@ class GlobalMiddleware
         
         $products = file_get_contents('https://fakestoreapi.com/products');
 
+        $products = Product::all();
         // if ($contents === FALSE) {
         //     // Handle the error, e.g., file not found, permission denied, etc.
         //     echo "Error: Could not read file '{$filename}'.";
