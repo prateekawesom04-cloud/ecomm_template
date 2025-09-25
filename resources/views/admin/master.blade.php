@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="{{asset('css/montserrat_font.css')}}">
     <link rel="stylesheet" href="{{asset('css')}}/tailwind.min.css">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('pages/waves/css/waves.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.css')}}">
+    
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -33,9 +38,6 @@
     
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/tailwind.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/app_style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
 
     <div class="app_body app_light" style="display:none;">
 
