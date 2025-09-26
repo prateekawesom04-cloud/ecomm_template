@@ -1,0 +1,49 @@
+/* light theme */
+
+    /* border color: #1a1a1a; */
+    /* content_box background color: #fff */
+    /* normal text color: #000 */
+    /* special text color: #929391 */
+
+
+*,p,h1,h2,h3,h4,h5,h6,label,button,a {  
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 300;
+}
+
+h3,h4,h5,h6 {
+    font-size: 14px;
+}
+
+*,p,a,span {
+    font-size: 12px;  
+}
+    
+h1 {
+    font-weight: 300;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+#sidebarMenu li {
+    display: flex;
+}
+
+#sidebarMenu a.nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+

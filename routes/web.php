@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminDataController;
 
 
 // Route::get('/{slug}', function ($slug) {
@@ -47,3 +48,12 @@ Route::get('session', function () {
     return session()->all();
 });
 
+
+
+
+// Admin routes
+
+
+    Route::prefix('admin')->group(function () {
+        Route::get('', [AdminDataController::class,'index'])->name('pages.index');
+    });
