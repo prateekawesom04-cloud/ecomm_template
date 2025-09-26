@@ -1,5 +1,13 @@
 <script>
 
+    
+    $('.app_login').click(function(){
+        $('.app_custom_modal').show();
+    });
+    $('.app_custom_modal .btn-close').click(()=>{
+        $('.app_custom_modal').hide();
+    });
+
     let scrollCounter = 0;
 
     setInterval(() => {
@@ -31,16 +39,18 @@
         },300);
     });
 
+    $('.single_product_item').hover(function(){
+        $(this).find('img').parent().toggleClass('app_scroller');
+        
+        $('.app_scroller').animate({
+            scrollLeft: scrollCounter*$('.app_scroller').innerWidth()
+            // scrollLeft: $('.app_scroller').scrollLeft()+window.innerWidth
+        });
+    }) 
     
-    $('.app_login').click(function(){
-        $('.app_custom_modal').show();
-    });
-    $('.app_custom_modal .btn-close').click(()=>{
-        $('.app_custom_modal').hide();
-    });
 
     $('.app_product_heart').click(function(){
         $(this).toggleClass('active');
-    })
+    });
 
 </script>

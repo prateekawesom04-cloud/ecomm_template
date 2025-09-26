@@ -1,5 +1,5 @@
 
-<div class="flex flex-row items-start overflow-x-auto overflow-hidden w-full app_scroller">
+<div class="flex flex-row items-start overflow-x-auto overflow-hidden w-full">
 
     @foreach([1,2,3,4] as $i)
 
