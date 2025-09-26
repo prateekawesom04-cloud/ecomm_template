@@ -1,6 +1,6 @@
 
     <!--::header part start::-->
-    <header class="main_menu home_menu !static w-full main_menu home_menu !static w-full md:py-1 py-4">
+    <header class="main_menu home_menu !static w-full main_menu home_menu md:py-1 py-2 my-3 shadow-sm">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
