@@ -3,7 +3,7 @@
 @section('body')
 
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">Products</h1>
         {{-- <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -16,28 +16,6 @@
         </div> --}}
       </div>
 
-      <div class="flex row p-2 items-center justify-center">
-        <div class="col-6 col-md-3 p-3">
-          <div class="admin_card">
-            <h4>Products</h4>
-            <span>56</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 p-3">
-          <div class="admin_card">
-            <h4>Sales</h4>
-            <span>560878.56</span>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 p-3">
-          <div class="admin_card">
-            <h4>Vendors</h4>
-            <span>56</span>
-          </div>
-        </div>
-      </div>
-
-      <h2>Products</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

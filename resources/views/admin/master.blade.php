@@ -16,14 +16,26 @@
     @yield('head')
 </head>
 <body>
-    <div class="app_body app_light" style="display:none;">
+    <div class="app_body app_light flex flex-column h-[100vh]" style="display:none;">
             <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                 @include('admin.includes.header')
             </header>
             
-            <div class="app_body_part container-fluid">
-                <div class="row">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="">
+            <div class="app_body_part container-fluid flex-1">
+                <div class="row h-full">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar" style="">
+                        
+                        <div class="p-4">
+                            <div class="user_info_card">
+                                <div class="p-4">
+                                    <div class="rounded-full">
+                                        <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="">
+                                    </div>
+                                </div>
+                                <h4>Vendor Name</h4>
+                                {{-- <span>56</span> --}}
+                            </div>
+                        </div>
                         @include('admin.includes.navbar')
                     </nav>
                     
@@ -41,9 +53,11 @@
 
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/tailwind.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>
 
     @include('admin.includes.ajaxCall')
+    @include('includes.main_js')
     @include('admin.includes.js')
     @yield('js')
     

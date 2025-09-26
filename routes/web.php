@@ -52,8 +52,3 @@ Route::get('session', function () {
 
 
 // Admin routes
-
-
-    Route::prefix('admin')->group(function () {
-        Route::get('', [AdminDataController::class,'index'])->name('pages.index');
-    });
