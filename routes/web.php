@@ -14,39 +14,43 @@ use App\Http\Controllers\AdminDataController;
 //     }
 // });
 
-Route::get('', [IndexController::class,'index'])->name('pages.index');
-Route::get('products', [ProductController::class,'products'])->name('pages.products');
-Route::get('product', [ProductController::class,'product'])->name('pages.product');
-Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
-Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
+Route::middleware(['global_middleware'])->group(function () {
 
-Route::get('login', function () {
-    return view('pages.login'); 
-})->name('pages.login');
+    Route::get('', [IndexController::class,'index'])->name('pages.index');
+    Route::get('products', [ProductController::class,'products'])->name('pages.products');
+    Route::get('product', [ProductController::class,'product'])->name('pages.product');
+    Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
+    Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
 
-Route::get('register', function () {
-    return view('pages.register'); 
-})->name('pages.register');
+    Route::get('login', function () {
+        return view('pages.login'); 
+    })->name('pages.login');
 
-Route::get('aboutus', function () {
-    return view('pages.aboutus'); 
-})->name('pages.aboutus');
+    Route::get('register', function () {
+        return view('pages.register'); 
+    })->name('pages.register');
 
-Route::get('contactus', function () {
-    return view('pages.contactus'); 
-})->name('pages.contactus');
+    Route::get('aboutus', function () {
+        return view('pages.aboutus'); 
+    })->name('pages.aboutus');
 
-Route::get('singleCheckout', function () {
-    return view('pages.singleCheckout'); 
-})->name('pages.singleCheckout');
+    Route::get('contactus', function () {
+        return view('pages.contactus'); 
+    })->name('pages.contactus');
 
-Route::get('orderDetail', function () {
-    return view('pages.orderDetail'); 
-})->name('pages.orderDetail');
+    Route::get('singleCheckout', function () {
+        return view('pages.singleCheckout'); 
+    })->name('pages.singleCheckout');
 
-Route::get('session', function () {
-    return session()->all();
+    Route::get('orderDetail', function () {
+        return view('pages.orderDetail'); 
+    })->name('pages.orderDetail');
+
 });
+
+    Route::get('session', function () {
+        return session()->all();
+    });
 
 
 

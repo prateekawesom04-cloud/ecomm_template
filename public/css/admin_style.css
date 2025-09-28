@@ -82,18 +82,18 @@ h1 {
 /* upload image css */
 
 
-.upload__box {
+/* .upload__box {
   padding: 40px;
-}
-.upload__inputfile {
+} */
+/* .upload__inputfile {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
   z-index: -1;
-}
-.upload__btn {
+} */
+/* .upload__btn {
   display: inline-block;
   font-weight: 600;
   color: #fff;
@@ -116,14 +116,15 @@ h1 {
 }
 .upload__btn-box {
   margin-bottom: 10px;
-}
+} */
 .upload__img-wrap {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   margin: 0 -10px;
+  overflow-x: scroll;
 }
 .upload__img-box {
-  width: 200px;
+  min-width: 150px;
   padding: 0 10px;
   margin-bottom: 12px;
 }
@@ -152,4 +153,12 @@ h1 {
   background-size: cover;
   position: relative;
   padding-bottom: 100%;
+}
+
+.admin_app {
+  a.app_btn {
+        background: #303AB2;
+        color: #fff;
+        padding: .5rem 1rem;
+  }
 }

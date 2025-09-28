@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class AdminDataController extends Controller
 {
@@ -24,8 +25,14 @@ class AdminDataController extends Controller
     }
     
     public function addProducts(Request $request){
-        return view('admin.pages.addProducts'); 
+        
+        $product = (object) [];
+        if($request->product_id){
+            $product = Product::where('product_id',$request->product_id)->first();
+        }
+        return view('admin.pages.addProducts',compact('product')); 
     }
+    
     
 
 }

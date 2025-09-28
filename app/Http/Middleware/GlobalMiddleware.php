@@ -30,6 +30,7 @@ class GlobalMiddleware
         // }
 
         $products = json_decode($products);
+        // dd($products);
         View::share('products',$products);
         return $next($request);
     }

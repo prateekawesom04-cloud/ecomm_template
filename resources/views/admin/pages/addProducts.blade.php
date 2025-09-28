@@ -16,16 +16,32 @@
         </div> --}}
         </div>
 
-        <div class="flex flex-row items-center justify-center">
-        <div class="upload__box">
-            <div class="upload__btn-box">
-                <label class="upload__btn">
-                <p>Upload images</p>
-                <input type="file" multiple="" data-max_length="20" class="upload__inputfile">
-                </label>
+        <div class="p-2">
+            <div class="app_card">
+                @include('admin.includes.addProductForm')
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="form-group flex justify-end col-md-6">
+                        <a href="javascript:void(0)" class="btn app_btn">Submit</a>
+                    </div> 
+                </div>
             </div>
-            <div class="upload__img-wrap"></div>
-        </div>
     </div>
+
+@endsection
+
+@section('js')
+
+    <script>
+        $('.app_btn').on('click',function(){
+            // $('form').submit();
+            let formData = new FormData($('form')[0]);
+            callApiFormData('post',`{{route('post.addProduct','0')}}`,formData,addProduct);
+        });
+        
+        function addProduct(res){
+            responseToast(res.message);
+        }
+    </script>
 
 @endsection

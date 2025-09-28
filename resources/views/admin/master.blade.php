@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/tailwind.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/montserrat.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app_style.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
     {{-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
     @yield('head')
 </head>
 <body>
-    <div class="app_body app_light flex flex-column h-[100vh]" style="display:none;">
+    <div class="app_body app_light flex flex-column h-[100vh] relative overflow-hidden" style="display:none;">
             <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                 @include('admin.includes.header')
             </header>
@@ -48,8 +49,9 @@
         <div class="app_footer_part">
             @include('admin.includes.footer')
         </div>
+        @include('admin.includes.loader')
+        @include('includes.app_toast')
     </div>
-    @include('admin.includes.loader')
 
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>

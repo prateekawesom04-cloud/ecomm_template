@@ -31,15 +31,16 @@ h1 {
     color: #303AB2;
 }
 
+a.app_btn {
+    background: #303AB2;
+    color: #fff;
+    padding: .5rem 1rem;
+}
+
 .app_light {
     color: #000;
     a:hover {
         color: #303AB2;
-    }
-    a.app_btn {
-        background: #303AB2;
-        color: #fff;
-        padding: 1rem 2rem;
     }
 
     h1,h2,h3,h4,h5,h6,p,label {
@@ -64,9 +65,17 @@ h1 {
     flex-direction: column;
     gap: 0.5rem;
 }
+
 input, input:hover, input:focus {
-    border: none;
-    background: none;
+    /* border: none;
+    background: none; */
+    box-shadow: none;
+    border-color: #303ab2;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #303ab2;
 }
 
 .app_row {
@@ -105,9 +114,44 @@ input, input:hover, input:focus {
 }
 
 .app_product_heart.active svg{
-    fill:#303AB2;
+    fill:#4045ba;
 }
 
+.app_card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    border: 0.1rem solid #e4e3e9;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e4e3e9;
+    background: #f8f9fa;
+    color: #000;
+    
+}
 
+.app_shadow {
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e4e3e9;
+}
 
+.form-control::file-selector-button {
+    border-width: 0;
+    background-color: #4045ba;
+    color: #fff;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    margin-right: 1em;
+    height: 100%;
+}
+
+.app_toast {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 1;
+    position: absolute;
+    top: 5%;
+    right: -100%;
+    min-width: 200px;
+    transition: all 0.2s;
+}
 
