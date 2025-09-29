@@ -26,10 +26,10 @@
             <span class="MuiIconButton-label"><img src="https://assets-cloud.landmarkshops.in/website_images/static-pages/brand_exp/brand2images/icons/close-black-24.svg" alt=""></span>
         </a>  
         <div class="col-md-10">
-            <h2>Sign up or Sign in</h2>
+            <h2 class="mb-3">Sign up or Sign in</h2>
             <div>Enjoy the convenience of a single account across all participating brands</div>
-            <div class="app_input_box">
-                <label for="phone">Mobile Number</label>
+            <div class="my-3 app_input_box">
+                <label class="m-0" for="phone">Mobile Number</label>
                 <div class="">
                     <span class="px-1 py-2 border-r-1 border-[#1a1a1a]">+91</span>
                     <input class="px-1 py-2" type="text" name="phone" placeholder="Enter your mobile number">
