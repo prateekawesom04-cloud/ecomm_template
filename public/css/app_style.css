@@ -143,16 +143,20 @@ input, input:hover, input:focus {
     height: 100%;
 }
 
+
 .app_toast {
+    opacity: 1;
+    position: fixed;
+    top: 5%;
+    right: -100%;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.app_toast .toast_div {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    opacity: 1;
-    position: absolute;
-    top: 5%;
-    right: -100%;
-    min-width: 200px;
-    transition: all 0.2s;
 }
 
