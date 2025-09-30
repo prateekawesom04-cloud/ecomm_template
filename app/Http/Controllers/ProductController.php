@@ -27,7 +27,7 @@ class ProductController extends Controller
     }
 
     public function addProduct(Request $request){
-        
+        // dd($request->all());
         $request->validate([
             'image.*' => 'image|max:2048',
         ]);
@@ -48,13 +48,15 @@ class ProductController extends Controller
         if($request->product_id){
             $product = Product::where('product_id',$request->product_id)->first();
         } else{
-            $request->product_id = time().rand(100,999);
-            $product = new Product();
+        $request->product_id = time().rand(100,999);
+        $product = new Product();
         }
         // dd($product);
         $columns = $this->getColumns($product);
-        foreach($columns as $column){
-            $product->{$column} = $request->{$column};
+        foreach(array_keys($request->all()) as $column){
+            if(property_exists($product,$column)){
+                $product->{$column} = $request->{$column};
+            }
         }
 
         $product->save();
@@ -66,7 +68,7 @@ class ProductController extends Controller
     }
     
     public function updateProduct(Request $request){
-        
+        dd(array_keys($request->all()));
         $request->validate([
             'image.*' => 'image|max:2048',
         ]);
@@ -93,7 +95,7 @@ class ProductController extends Controller
         $product->save();
 
         return response()->json([
-            'message'=>'Product Added Succesfully',
+            'message'=>'Product Updated Succesfully',
             'code'=>'200'
         ]);
     }

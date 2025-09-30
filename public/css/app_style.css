@@ -125,7 +125,8 @@ input, input:hover, input:focus {
     box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e4e3e9;
     background: #f8f9fa;
     color: #000;
-    
+    margin: 0 auto; 
+    width: 75%;
 }
 
 .app_shadow {

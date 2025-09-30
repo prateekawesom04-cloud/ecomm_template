@@ -14,8 +14,8 @@ Route::middleware(['global_middleware'])->group(function () {
         Route::get('orders', [AdminDataController::class,'orders'])->name('admin.pages.orders');
         Route::get('products', [AdminDataController::class,'products'])->name('admin.pages.products');
         Route::get('customers', [AdminDataController::class,'customers'])->name('admin.pages.customers');
-        // Route::get('addProducts', [AdminDataController::class,'addProducts'])->name('admin.pages.addProducts');
-        // Route::get('updateProduct/{product_id}', [AdminDataController::class,'updateProduct'])->name('admin.pages.updateProduct');
         Route::get('addProducts/{product_id}', [AdminDataController::class,'addProducts'])->name('admin.pages.addProducts');
+        // Route::get('updateProduct/{product_id}', [AdminDataController::class,'updateProduct'])->name('admin.pages.updateProduct');
+        // Route::get('addProducts/{product_id}', [AdminDataController::class,'addProducts'])->name('admin.pages.addProducts');
     });
 });
