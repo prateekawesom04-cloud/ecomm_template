@@ -58,6 +58,10 @@ a.app_btn {
     .app_spl_text {
         color: #929391;
     }
+
+    .btn-link {
+        color: #4045ba;
+    }
 }
 
 .app_input_box{
@@ -94,7 +98,7 @@ input, input:hover, input:focus {
 }
 
 .app_custom_modal {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     top: 0;

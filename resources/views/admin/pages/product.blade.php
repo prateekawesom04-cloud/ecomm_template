@@ -14,18 +14,21 @@
             This week
             </button>
         </div> --}}
-        </div>
+    </div>
 
-        <div class="p-2">
-            <div class="app_card">
-                @include('admin.includes.addProductForm')
-                <div class="row">
-                    <div class="col-md-6"></div>
-                    <div class="form-group flex justify-end col-md-6">
-                        <a href="javascript:void(0)" class="btn app_btn">Submit</a>
-                    </div> 
-                </div>
+    <div class="p-2">
+        <div class="app_card">
+            @include('admin.includes.productForm')
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="form-group flex justify-end col-md-6">
+                    <a href="javascript:void(0)" class="btn app_btn product_action">Submit</a>
+                </div> 
             </div>
+        </div>
+    </div>
+    <div class="my-2">
+        @include('admin.pages.category')
     </div>
 
 @endsection
@@ -33,13 +36,18 @@
 @section('js')
 
     <script>
-        $('.app_btn').on('click',function(){
+        $('.product_action').on('click',function(){
             // $('form').submit();
-            let formData = new FormData($('form')[0]);
-            callApiFormData('post',`{{route('post.addProduct','0')}}`,formData,addProduct);
+            let formData = new FormData($('#updateProduct')[0]);
+            callApiFormData('post',`{{route('post.updateProducts','0')}}`,formData,response);
         });
         
-        function addProduct(res){
+        $('.category_action').on('click',function(){
+            let formData = new FormData($('#updateCategory')[0]);
+            callApiFormData('post',`{{route('post.category','0')}}`,formData,response);
+        });
+        
+        function response(res){
             responseToast(res.message);
         }
     </script>

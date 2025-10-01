@@ -1,5 +1,5 @@
 
-                <form id="addProduct" class="addProduct row" enctype="multipart/form-data">
+                <form id="updateProduct" class="updateProduct row" enctype="multipart/form-data">
                     <div class="form-group col-md-6">
                         <label for="usr">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{isset($product->title)?$product->title:''}}">

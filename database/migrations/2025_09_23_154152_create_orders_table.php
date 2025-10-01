@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->text('shipping_address');
             $table->integer('shipping_method');
-            $table->integer('order_status');
+            $table->tinyInteger('status');
             $table->json('additional_data')->nullable();
             $table->timestamps();
         });

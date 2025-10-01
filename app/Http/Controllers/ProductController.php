@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 use App\Models\Product;
+use App\AdminTrait;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
         return view('pages.favourites');
     }
 
-    public function addProduct(Request $request){
+    public function updateProducts(Request $request){
         // dd($request->all());
         $request->validate([
             'image.*' => 'image|max:2048',
@@ -44,6 +45,7 @@ class ProductController extends Controller
         }
         
         $request->image = json_encode($imageNames);
+        $request->status = 1;
         
         if($request->product_id){
             $product = Product::where('product_id',$request->product_id)->first();
@@ -67,47 +69,25 @@ class ProductController extends Controller
         ]);
     }
     
-    public function updateProduct(Request $request){
+    public function category(Request $request){
         dd(array_keys($request->all()));
         $request->validate([
-            'image.*' => 'image|max:2048',
+            'name' => 'required',
         ]);
 
-        if ($request->file('image')) {
-            $imageNames = [];
-
-            foreach($request->file('image') as $image){
-                $imageName = time() . '_' . $image->getClientOriginalName();
-                $imageName = $image->storeAs('productImages/'.$request->category_id, $imageName, 'public');
-                $imageNames[] = $imageName;
-            }
-
-        }
-        
-        $request->image = json_encode($imageNames);
-        
-        $product = new Product();
-        $columns = $this->getColumns($product);
+        $category = new Category();
+        $columns = $this->getColumns($category);
         foreach($columns as $column){
-            $product->{$column} = $request->{$column};
+            $category->{$column} = $request->{$column};
         }
 
-        $product->save();
+        $category->save();
 
         return response()->json([
-            'message'=>'Product Updated Succesfully',
+            'message'=>'Category Updated Succesfully',
             'code'=>'200'
         ]);
     }
     
 
-
-    // Additional Trait Codes
-    function getColumns($modelObject){
-        $tableName = $modelObject->getTable();
-        $columns = Schema::getColumnListing($tableName);
-        array_splice($columns, 0, 1);
-        array_splice($columns, count($columns)-2, 2);
-        return $columns;
-    }
 }

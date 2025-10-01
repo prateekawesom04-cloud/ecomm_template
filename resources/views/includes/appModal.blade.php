@@ -39,6 +39,15 @@
             <div class="flex justify-end">
                 <a href="javascript:void(0)" class="app_btn">Continue</a>
             </div>
+            <hr class="hr border-0 my-5" />
+            <div class="social_login">
+                <div class="text-center">
+                    <p>or sign up with:</p>
+                    <a href="{{route('api.login.social')}}" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
