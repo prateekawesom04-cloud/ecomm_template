@@ -28,6 +28,7 @@
             </tr>
           </thead>
           <tbody>
+            @foreach($products as $product)
             <tr>
               <td>1,001</td>
               <td>random</td>
@@ -35,6 +36,7 @@
               <td>placeholder</td>
               <td>text</td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

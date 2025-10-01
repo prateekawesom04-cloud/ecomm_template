@@ -51,10 +51,10 @@ class ProductController extends Controller
         $request->product_id = time().rand(100,999);
         $product = new Product();
         }
-        // dd($product);
+        
         $columns = $this->getColumns($product);
         foreach(array_keys($request->all()) as $column){
-            if(property_exists($product,$column)){
+            if(in_array($column,$columns)){
                 $product->{$column} = $request->{$column};
             }
         }
