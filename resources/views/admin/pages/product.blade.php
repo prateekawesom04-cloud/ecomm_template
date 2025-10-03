@@ -38,11 +38,21 @@
     <script>
         $('.product_action').on('click',function(){
             // $('form').submit();
+            if($(this).hasClass('disabled')){
+                responseToast('please wait...','bg-warning');
+                return false;
+            }
+            $(this).addClass('disabled');
             let formData = new FormData($('#updateProduct')[0]);
             callApiFormData('post',`{{route('post.updateProducts','0')}}`,formData,updateProduct);
         });
         
         $('.category_action').on('click',function(){
+            if($(this).hasClass('disabled')){
+                responseToast('please wait...','bg-warning');
+                return false;
+            }
+            $(this).addClass('disabled');
             let formData = new FormData($('#updateCategory')[0]);
             callApiFormData('post',`{{route('post.category','0')}}`,formData,updateProduct);
         });

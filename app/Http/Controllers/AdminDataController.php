@@ -63,7 +63,7 @@ class AdminDataController extends Controller
             ]);
         }
         $columns = $this->getColumns(new User());
-        $pageData = User::where('status',1)->get();
+        $pageData = User::where('role',2)->get();
         return view('admin.pages.customers',compact('pageData','columns')); 
     }
     

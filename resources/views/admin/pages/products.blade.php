@@ -16,6 +16,12 @@
         </div> --}}
       </div>
 
+      @section('additional_th')
+        <th>
+          Action
+        </th>
+      @endsection
+      
       @include('admin.includes.admin_table')
 
 @endsection
