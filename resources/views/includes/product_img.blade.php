@@ -1,8 +1,12 @@
 <div class="app_product_img w-full overflow-y-scroll">
     <div class="app_row">
-        <div class="col-md-6 p-0 m-0">
-            <img src="https://picsum.photos/id/424/450/750" alt="" srcset="">
-        </div>
+        @if($product->image)
+            @foreach(json_decode($product->image) as $image)
+            <div class="col-md-6 p-0 m-0">
+                <img src="{{asset('storage').'/'.$image}}" alt="" srcset="">
+            </div>
+            @endforeach
+        @else
         <div class="col-md-6 p-0 m-0">
             <img src="https://picsum.photos/id/425/450/750" alt="" srcset="">
         </div>
@@ -18,5 +22,6 @@
         <div class="col-md-6 p-0 m-0">
             <img src="https://picsum.photos/id/429/450/750" alt="" srcset="">
         </div>
+        @endif
     </div>
 </div>

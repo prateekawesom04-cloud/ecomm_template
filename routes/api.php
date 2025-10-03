@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -17,4 +19,10 @@ Route::post('updateProduct/{product_id}', [ProductController::class,'updateProdu
 
 Route::post('category/{id}', [ProductController::class,'category'])->name('post.category');
 
-Route::get('social', [ProductController::class,'redirect'])->name('api.login.social');
+Route::get('getOtp', [AuthController::class,'getOtp'])->name('api.login.getOtp');
+
+Route::get('verifyOtp', [AuthController::class,'verifyOtp'])->name('api.login.verifyOtp');
+
+Route::get('social', [UserController::class,'redirect'])->name('api.login.social');
+
+Route::get('updateUserData', [UserController::class,'updateUserData'])->name('post.updateUserData');

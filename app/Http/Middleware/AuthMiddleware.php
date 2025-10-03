@@ -16,7 +16,7 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Session::get('user_session')) {
+        if(Session::get('username')) {
             return redirect()->route('index');
         } else{
             return $next($request);

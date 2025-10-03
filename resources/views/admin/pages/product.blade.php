@@ -39,15 +39,16 @@
         $('.product_action').on('click',function(){
             // $('form').submit();
             let formData = new FormData($('#updateProduct')[0]);
-            callApiFormData('post',`{{route('post.updateProducts','0')}}`,formData,response);
+            callApiFormData('post',`{{route('post.updateProducts','0')}}`,formData,ajaxResponse);
         });
         
         $('.category_action').on('click',function(){
             let formData = new FormData($('#updateCategory')[0]);
-            callApiFormData('post',`{{route('post.category','0')}}`,formData,response);
+            callApiFormData('post',`{{route('post.category','0')}}`,formData,ajaxResponse);
         });
         
         function response(res){
+            
             responseToast(res.message);
         }
     </script>

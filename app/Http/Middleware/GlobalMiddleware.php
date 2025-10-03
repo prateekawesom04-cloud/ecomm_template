@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
+use App\Models\Category;
 use App\Models\Product;
 
 class GlobalMiddleware
@@ -20,20 +22,18 @@ class GlobalMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         
-        // $products = file_get_contents('https://fakestoreapi.com/products');
-        $products = Product::all();
+        $currentUser = Session::get('username');
+        if($currentUser){
+            $currentUser = User::where('username',$currentUser)->first();
+            View::share('currentUser',$currentUser);
+        }
 
-        // if ($contents === FALSE) {
-        //     // Handle the error, e.g., file not found, permission denied, etc.
-        //     echo "Error: Could not read file '{$filename}'.";
-        // } else {
-        //     // File contents successfully retrieved
-        //     echo "File contents: {$contents}";
-        // }
-
-        $products = json_decode($products);
-        // dd($products);
+        $products = Product::where('status','1')->get();
+        $category = Category::all();
+        
+        View::share('category',$category);
         View::share('products',$products);
+        
         return $next($request);
     }
 }

@@ -17,7 +17,7 @@
     @yield('head')
 </head>
 <body>
-    <div class="app_body app_light flex flex-column h-[100vh] relative overflow-hidden" style="display:none;">
+    <div class="app_body app_light flex flex-column h-[100vh] relative overflow-hidde" style="display:none;">
             <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                 @include('admin.includes.header')
             </header>

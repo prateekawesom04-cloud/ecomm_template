@@ -113,13 +113,21 @@ input, input:hover, input:focus {
     z-index: 999;
 }
 
-.app_product_heart svg{
+.app_product_heart svg,.app_product_cart svg{
     fill:transparent;
 }
 
-.app_product_heart.active svg{
+.app_product_heart.active svg,.app_product_cart svg.active{
     fill:#4045ba;
 }
+
+/* .app_product_cart svg.active {
+    display: block;
+} */
+/* 
+.app_product_cart svg {
+    display: none;
+} */
 
 .app_card {
     display: flex;

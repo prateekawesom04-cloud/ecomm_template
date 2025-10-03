@@ -1,6 +1,8 @@
 
 <div class="flex flex-row justify-center relative">
-  @include('includes.navItem',['category'=>'Men'])
-  @include('includes.navItem',['category'=>'Women'])
-  @include('includes.navItem',['category'=>'Kids'])
+  @foreach($category as $cat)
+    @include('includes.navItem',['category'=>$cat->name])
+  @endforeach
+  {{-- @include('includes.navItem',['category'=>'Women'])
+  @include('includes.navItem',['category'=>'Kids']) --}}
 </div>

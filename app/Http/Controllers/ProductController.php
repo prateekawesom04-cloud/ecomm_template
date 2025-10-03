@@ -6,17 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
 use App\AdminTrait;
 
 class ProductController extends Controller
 {
     //
+    use AdminTrait;
+
     public function products(Request $request){
+        // $products = Product::where('status','1')->get();
         return view('pages.products');
     }
     
     public function product(Request $request){
-        return view('pages.product');
+        $product = Product::where('product_id',$request->product_id)->first();
+        
+        return view('pages.product',compact('product'));
     }
     
     public function cart(Request $request){
@@ -50,8 +56,8 @@ class ProductController extends Controller
         if($request->product_id){
             $product = Product::where('product_id',$request->product_id)->first();
         } else{
-        $request->product_id = time().rand(100,999);
-        $product = new Product();
+            $product = new Product();
+            $product->product_id = time().rand(100,999);
         }
         
         $columns = $this->getColumns($product);
@@ -60,7 +66,6 @@ class ProductController extends Controller
                 $product->{$column} = $request->{$column};
             }
         }
-
         $product->save();
 
         return response()->json([
@@ -70,7 +75,7 @@ class ProductController extends Controller
     }
     
     public function category(Request $request){
-        dd(array_keys($request->all()));
+        
         $request->validate([
             'name' => 'required',
         ]);
@@ -81,6 +86,7 @@ class ProductController extends Controller
             $category->{$column} = $request->{$column};
         }
 
+        $category->category_id = $request->category_id;
         $category->save();
 
         return response()->json([

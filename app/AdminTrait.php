@@ -2,6 +2,8 @@
 
 namespace App;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 trait AdminTrait
 {
@@ -15,4 +17,7 @@ trait AdminTrait
         return $columns;
     }
 
+    function getCurrentUser(){
+        return User::where('username',Session::get('username'))->first();
+    }
 }

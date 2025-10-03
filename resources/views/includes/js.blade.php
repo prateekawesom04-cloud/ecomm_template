@@ -30,12 +30,11 @@
 
     // slider click
     $('.app_scroll_arrow').click(function(e){
-
-        let scroll_arrow = $(this);
-        let currentScroller = $(this).parents('.app_scroller_p').find('.app_scroller');
+        
+        let currentScroller = $(this).parents('.scroll_main').find('.scrollContainer1');
         
         $(currentScroller).animate({
-            scrollLeft: '+='+$(scroll_arrow).attr('data-scroll')+currentScroller.width()
+            scrollLeft: '+='+$(this).attr('data-scroll')+currentScroller.width()
         },300);
     });
 
@@ -48,9 +47,55 @@
         });
     }) 
     
-
-    $('.app_product_heart').click(function(){
-        $(this).toggleClass('active');
+    $('.get_otp').on('click',function(){
+        if($(this).hasClass('active')){
+            $(this).text('Back');
+            $(this).removeClass('active');
+            $(this).attr('data-scroll','-');
+            callApi('post','{{route('api.login.getOtp')}}',{phone:$('input[name=phone]').val()},ajaxResponse);
+        } else{    
+            $(this).text('Continue');
+            $(this).addClass('active');
+            $(this).attr('data-scroll','+');
+        }
     });
 
+
+    function setLocalStorage(userLocalStorage){
+        localStorage.setItem('userLocalStorage',userLocalStorage);
+    }
+
+    let userLocalStorage = {};
+
+    if(localStorage.getItem('userLocalStorage')){
+        userLocalStorage = localStorage.getItem('userLocalStorage');
+        userLocalStorage.favourites = userLocalStorage.favourites;
+        userLocalStorage.cart = userLocalStorage.cart;
+
+    } else{
+        userLocalStorage.favourites = {};
+        userLocalStorage.cart = {};
+    }
+    
+    $('.app_product_heart').click(function(){
+        
+        $(this).toggleClass('active');
+        let product_id = $(this).attr('data-product_id');
+        userLocalStorage.favourites[product_id] = product_id;
+        setLocalStorage(userLocalStorage);
+        callApi('post','{{route('post.updateUserData')}}',{favourites:product_id},ajaxResponse);
+
+    });
+
+    $('.app_product_cart').click(function(){
+        
+        $(this).toggleClass('active');
+        let product_id = $(this).attr('data-product_id');
+        userLocalStorage.favourites[product_id] = product_id;
+        setLocalStorage(userLocalStorage);
+        callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
+        
+    });
+
+    
 </script>

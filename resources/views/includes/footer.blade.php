@@ -7,10 +7,10 @@
                     <div class="single_footer_part">
                         <h4>Top Products</h4>
                         <ul class="list-unstyled">
-                            <li><a href="{{route('pages.product')}}">West</a></li>
-                            <li><a href="{{route('pages.product')}}">Clothes</a></li>
-                            <li><a href="{{route('pages.product')}}">Jackets</a></li>
-                            <li><a href="{{route('pages.product')}}">Inner Wears</a></li>
+                            <li><a href="{{route('pages.products')}}">West</a></li>
+                            <li><a href="{{route('pages.products')}}">Clothes</a></li>
+                            <li><a href="{{route('pages.products')}}">Jackets</a></li>
+                            <li><a href="{{route('pages.products')}}">Inner Wears</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         <h4>Features</h4>
                         <ul class="list-unstyled">
                             <li><a href="{{route('pages.products')}}">Products page</a></li>
-                            <li><a href="{{route('pages.product')}}">Product page</a></li>
+                            {{-- <li><a href="{{route('pages.product')}}">Product page</a></li> --}}
                             <li><a href="{{route('pages.cart')}}">Cart page</a></li>
                             <li><a href="{{route('pages.singleCheckout')}}">Checkout page</a></li>
                             <li><a href="{{route('pages.orderDetail')}}">Order Detail page</a></li>
@@ -40,7 +40,7 @@
                         <h4>Resources</h4>
                         <ul class="list-unstyled">
                             <li><a href="{{route('pages.products')}}">Products page</a></li>
-                            <li><a href="{{route('pages.product')}}">Product page</a></li>
+                            {{-- <li><a href="{{route('pages.product')}}">Product page</a></li> --}}
                             <li><a href="{{route('pages.cart')}}">Cart page</a></li>
                         </ul>
                     </div>

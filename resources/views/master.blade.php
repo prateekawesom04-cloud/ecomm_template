@@ -79,6 +79,8 @@
 
     @include('includes.ajaxCall')
     @include('includes.js')
+    @include('includes.main_js')
+    
     
     <script>
         $(document).ready(function(){

@@ -18,7 +18,7 @@ Route::middleware(['global_middleware'])->group(function () {
 
     Route::get('', [IndexController::class,'index'])->name('pages.index');
     Route::get('products', [ProductController::class,'products'])->name('pages.products');
-    Route::get('product', [ProductController::class,'product'])->name('pages.product');
+    Route::get('product/{product_id}', [ProductController::class,'product'])->name('pages.product');
     Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
     Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
 
