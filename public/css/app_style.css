@@ -39,6 +39,8 @@ a.app_btn {
     background: #303AB2;
     color: #fff;
     padding: .5rem 1rem;
+    min-width: 100px;
+    text-align: center;
 }
 
 .app_light {
@@ -167,6 +169,8 @@ input, input:hover, input:focus {
     right: -100%;
     min-width: 200px;
     max-width: 250px;
+    z-index: 999;
+    transition: all 0.4s;
 }
 
 .app_toast .toast_div {

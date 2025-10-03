@@ -13,16 +13,16 @@ Route::get('/user', function (Request $request) {
 
 // Route::post('addProduct',[ProductController::class,'addProduct'])->name('post.addProduct');
 
-Route::post('updateProducts/{product_id}', [ProductController::class,'updateProducts'])->name('post.updateProducts');
+// Route::post('updateProducts/{product_id}', [ProductController::class,'updateProducts'])->name('post.updateProducts');
 
-Route::post('updateProduct/{product_id}', [ProductController::class,'updateProduct'])->name('post.updateProduct');
+// Route::post('updateProduct/{product_id}', [ProductController::class,'updateProduct'])->name('post.updateProduct');
 
-Route::post('category/{id}', [ProductController::class,'category'])->name('post.category');
+// Route::post('category/{id}', [ProductController::class,'category'])->name('post.category');
 
-Route::get('getOtp', [AuthController::class,'getOtp'])->name('api.login.getOtp');
+// Route::post('getOtp', [AuthController::class,'getOtp'])->name('post.login.getOtp');
 
-Route::get('verifyOtp', [AuthController::class,'verifyOtp'])->name('api.login.verifyOtp');
+// Route::post('verifyOtp', [AuthController::class,'verifyOtp'])->name('post.login.verifyOtp');
 
-Route::get('social', [UserController::class,'redirect'])->name('api.login.social');
+// Route::get('social', [UserController::class,'redirect'])->name('api.login.social');
 
-Route::get('updateUserData', [UserController::class,'updateUserData'])->name('post.updateUserData');
+// Route::post('updateUserData', [UserController::class,'updateUserData'])->name('post.updateUserData');

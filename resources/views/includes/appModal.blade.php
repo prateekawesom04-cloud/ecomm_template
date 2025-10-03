@@ -39,16 +39,19 @@
                 </div>
                 
                 <div class="my-3 min-w-full">
-                    <label class="m-0" for="otp">Enter OTP</label>
+                    {{-- <label class="m-0" for="otp">Enter OTP</label> --}}
                     <div class="">
                         <input class="px-1 py-2" type="text" name="otp" placeholder="Enter OTP">
+                    </div>
+                    <div class="otpCounter" style="display:none;">
+                        Resend OTP in <span id="otpCounter"></span>
                     </div>
                 </div>
 
             </div>
             <div>By creating your account you agree to our <span class="app_span_color">Terms and Conditions</span></div>
             <div class="flex justify-end">
-                <a href="javascript:void(0)" class="app_btn app_scroll_arrow get_otp active" data-scroll="+">Continue</a>
+                <a href="javascript:void(0)" class="app_btn get_otp active" data-scroll="+">Continue</a>
             </div>
             <hr class="hr border-0 my-5" />
             <div class="social_login">

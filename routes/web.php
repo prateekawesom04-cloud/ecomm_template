@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminDataController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 
 // Route::get('/{slug}', function ($slug) {
@@ -45,6 +48,31 @@ Route::middleware(['global_middleware'])->group(function () {
     Route::get('orderDetail', function () {
         return view('pages.orderDetail'); 
     })->name('pages.orderDetail');
+
+
+    // Api Routes
+    
+    Route::withoutMiddleware([VerifyCsrfToken::class])->group(function () {
+
+        Route::post('updateProducts/{product_id}', [ProductController::class,'updateProducts'])->name('post.updateProducts');
+    
+        Route::post('updateProduct/{product_id}', [ProductController::class,'updateProduct'])->name('post.updateProduct');
+    
+        Route::post('category/{id}', [ProductController::class,'category'])->name('post.category');
+    
+        Route::post('getOtp', [AuthController::class,'getOtp'])->name('post.login.getOtp');
+    
+        Route::post('verifyOtp', [AuthController::class,'verifyOtp'])->name('post.login.verifyOtp');
+
+        Route::post('signIn', [AuthController::class,'signIn'])->name('post.login.signIn');
+    
+        Route::post('updateUserData', [UserController::class,'updateUserData'])->name('post.updateUserData');
+
+    });
+        Route::get('social', [UserController::class,'social'])->name('api.login.social');
+
+        Route::get('callback/{redirect}', [UserController::class,'callback'])->name('api.login.callback');
+
 
 });
 

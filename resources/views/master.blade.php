@@ -52,6 +52,7 @@
     </div>
     @include('includes.loader')
     @include('includes.appModal')
+    @include('includes.app_toast')
     
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
     <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
@@ -78,8 +79,8 @@
     <script src="{{asset('js/custom.js')}}"></script>
 
     @include('includes.ajaxCall')
-    @include('includes.js')
     @include('includes.main_js')
+    @include('includes.js')
     
     
     <script>

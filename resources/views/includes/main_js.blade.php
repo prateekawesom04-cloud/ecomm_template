@@ -9,6 +9,7 @@
             $('.app_toast').fadeIn('slow',function(){
                 setTimeout(() => {
                     $('.app_toast').fadeOut('slow');
+            $('.app_toast').css('right','-100%');
                 }, 2000);
             });
         }

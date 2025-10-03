@@ -25,7 +25,9 @@
 
                             <div class="flex flex-row items-center justify-end gap-1">
                                 <div class="main-menu-item basis-autoe" id="ds_navLinks">
+                                    @if(session('username'))
                                     <a href="javascript:void(0)" class="btn customBg p-2 my-1 rounded-0 app_login">Login/Sign Up</a>
+                                    @endif
                                 </div>
                                 <div class="hearer_icon d-flex">
                                     <a href="{{route('pages.favourites')}}"><i class="ti-heart"></i></a>

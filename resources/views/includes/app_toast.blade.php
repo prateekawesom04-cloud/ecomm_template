@@ -1,4 +1,4 @@
-<div class="app_toast toast" role="alert" aria-live="assertive" aria-atomic="true" style="display: none;">
+<div class="app_toast toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast_div">
     <div class="toast-body">
       Hello, world! This is a toast message.

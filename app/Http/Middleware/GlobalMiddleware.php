@@ -26,6 +26,8 @@ class GlobalMiddleware
         if($currentUser){
             $currentUser = User::where('username',$currentUser)->first();
             View::share('currentUser',$currentUser);
+        } else{
+            View::share('currentUser',0);
         }
 
         $products = Product::where('status','1')->get();

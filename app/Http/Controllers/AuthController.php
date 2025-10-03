@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -32,16 +33,20 @@ class AuthController extends Controller
                 $user = User::where('phone',$request->phone)->first();
                 if(!$user){
                     $user = new User();
+                    $user->username = rand(100,999).substr(time(),count(time())-4).rand(00,99);
                     $user->phone = $request->phone;
                     $user->save();
                 }
-                if(Session::get('user_otp_verified')){
-                    $this->setUserSession($user->username);
-                }
+                // if(Session::get('user_otp_verified')){
+                //     $this->setUserSession($user->username);
+                // }
+                $this->setUserSession($user->username);
+                
             } else if($request->email){
                 $user = User::where('email',$request->email)->first();
                 if(!$user){
                     $user = new User();
+                    $user->username = rand(100,999).substr(time(),count(time())-4).rand(00,99);
                     $user->email = $request->email;
                     $user->save();
                 }
@@ -71,8 +76,14 @@ class AuthController extends Controller
         $otp = random_int(100000, 999999);
 
         Session::put('user_otp',$otp);
+        Session::put('user_phone',$request->phone);
         Session::put('otp_expiry_time',time() + (120));
 
+        return response()->json([
+            'message'=>$otp,
+            'code'=>200
+        ]);
+        
         $data = [
             'APIKey'=>env('SMS_API_KEY'),
             // 'user'=>'awesomecart',
@@ -102,8 +113,27 @@ class AuthController extends Controller
         }
         curl_close($ch);
 
+        $response = json_decode($response);
+
+        $message = 'Something Went Wrong';
+        $code = 2009;
+
+        if(property_exists($response,'ErrorCode')){
+            if($response->ErrorCode == 000){
+                $code = 200;
+                $message = 'Otp Sent Successfully';
+            } else {
+                $code = 405;
+                $message = 'Your number is not valid';
+            }
+        } else {
+            $code = 406;
+            $message = 'Your number is not valid';
+        }
+        
         return response()->json([
-            'response'=>$response
+            'message'=>$message,
+            'code'=>$code
         ]);
     }
 
@@ -113,18 +143,23 @@ class AuthController extends Controller
                 Session::put([
                     'user_otp_verified'=>True
                 ]);
+                $request = new Request();
+                $request->phone = session('user_phone');
+                
+                return $this->signIn($request);
+
                 return response()->json([
-                    'response'=> 'otp matched',
+                    'message'=> 'otp matched',
                     'code'=>200
                 ]);
             } else{
                 return response()->json([
-                    'response'=> 'otp mismatched'
+                    'message'=> 'otp mismatched'
                 ]);
             }
         }
         return response()->json([
-            'response'=> 'otp expired'
+            'message'=> 'otp expired'
         ]);
     }
 }

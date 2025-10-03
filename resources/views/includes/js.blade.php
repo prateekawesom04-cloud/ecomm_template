@@ -30,7 +30,9 @@
 
     // slider click
     $('.app_scroll_arrow').click(function(e){
-        
+        if($(this).hasClass('no_scroll')){
+            return false;
+        }
         let currentScroller = $(this).parents('.scroll_main').find('.scrollContainer1');
         
         $(currentScroller).animate({
@@ -47,19 +49,88 @@
         });
     }) 
     
+
     $('.get_otp').on('click',function(){
         if($(this).hasClass('active')){
-            $(this).text('Back');
-            $(this).removeClass('active');
-            $(this).attr('data-scroll','-');
-            callApi('post','{{route('api.login.getOtp')}}',{phone:$('input[name=phone]').val()},ajaxResponse);
+            callApi('post','{{route('post.login.getOtp')}}',{phone:$('input[name=phone]').val()},getOtp);
+
         } else{    
+            let btn = $('.get_otp');
+            let currentScroller = $(btn).parents('.scroll_main').find('.scrollContainer1');
+            $(currentScroller).animate({
+                scrollLeft: '+='+$(btn).attr('data-scroll')+currentScroller.width()
+            },300);
             $(this).text('Continue');
             $(this).addClass('active');
             $(this).attr('data-scroll','+');
+            resetCounter();
         }
     });
 
+    let counterInterval = '';
+    let counter = 120;
+
+    function resetCounter(){
+        counter = 120;
+        $('.otpCounter').hide();
+        clearInterval(counterInterval);
+    }
+
+    function getOtp(response){
+        
+        if(response.code==200){
+            responseToast(response.message,'bg-success');
+            let btn = $('.get_otp');
+            let currentScroller = $(btn).parents('.scroll_main').find('.scrollContainer1');
+            
+            $(currentScroller).animate({
+                scrollLeft: '+='+$(btn).attr('data-scroll')+currentScroller.width()
+            },300);
+
+            localStorage.setItem('otp_varified',0);
+            
+            $(btn).text('Back');
+            $(btn).removeClass('active');
+            $(btn).attr('data-scroll','-');
+            
+            $('.otpCounter').show();
+            $('#otpCounter').html(counter);
+
+            counterInterval = setInterval(() => {
+                if(counter > 0){
+                    counter-=1;
+                    $('#otpCounter').html(counter);
+                } else{
+                    counter = 120;
+                    $('.otpCounter').hide();
+                    $('.get_otp').html('Resent OTP');
+                    $('.get_otp').addClass('active');
+                    $(btn).attr('data-scroll','+');
+                    clearInterval(counterInterval);
+                }
+            }, 1000);
+        } else{
+            responseToast(response.message,'bg-warning');
+        }
+    }
+
+    $('input[name=otp]').on('keyup',function(){
+        if($(this).val().length == 6){
+            callApi('post','{{route('post.login.verifyOtp')}}',{otp:$('input[name=otp]').val()},verifyOtp);
+        }
+    });
+    
+    function verifyOtp(response){
+        if(response.code==200){
+            localStorage.setItem('otp_varified',1);
+            $('.otpCounter').hide();
+            responseToast(response.message,'bg-success');
+            $('.app_custom_modal').hide();
+            window.location.reload();
+        } else{
+            responseToast(response.message,'bg-warning');
+        }
+    }
 
     function setLocalStorage(userLocalStorage){
         localStorage.setItem('userLocalStorage',JSON.stringify(userLocalStorage));

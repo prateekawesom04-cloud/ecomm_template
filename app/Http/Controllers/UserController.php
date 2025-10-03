@@ -23,10 +23,10 @@ class UserController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-    public function callback(){
+    public function callback(Request $request){
 
         try {
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver($request->redirect)->user();
             $request = new Request();
             $request->email = $user->email;
 
