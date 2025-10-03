@@ -43,6 +43,7 @@ class AuthController extends Controller
                 $this->setUserSession($user->username);
                 
             } else if($request->email){
+                Log::info('This is an informational message.'.$request->email);
                 $user = User::where('email',$request->email)->first();
                 if(!$user){
                     $user = new User();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -30,6 +31,8 @@ class UserController extends Controller
             $request = new Request();
             $request->email = $user->email;
 
+            Log::info('This is an informational message.----'.$user->email);
+
             (new AuthController())->signIn($request);
             
         } catch (Throwable $e) {
@@ -38,7 +41,7 @@ class UserController extends Controller
     }
 
     function updateUserData(Request $request){
-        $user = User::where('username',Session::get('username'))->first();
+        $user = $this->getCurrentUser();
 
         if($request->cart){
             $user->cart = dd(json_decode($request->cart));
