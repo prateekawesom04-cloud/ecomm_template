@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -46,10 +47,18 @@ class AuthController extends Controller
                 Log::info('This is an informational message.'.$request->email);
                 $user = User::where('email',$request->email)->first();
                 if(!$user){
-                    $user = new User();
-                    $user->username = rand(100,999).substr(time(),count(time())-4).rand(00,99);
-                    $user->email = $request->email;
-                    $user->save();
+                    try {
+                        $user = new User();
+                        $user->username = rand(100,999).substr(time(),count(time())-4).rand(00,99);
+                        $user->email = $request->email;
+                        $user->save();
+                    } catch (QueryException $e) {
+                        Log::error('Database error during Eloquent operation: ' . $e->getMessage(), [
+                            'file' => $e->getFile(),
+                            'line' => $e->getLine(),
+                            'code' => $e->getCode(),
+                        ]);
+                    }
                 }
                 $this->setUserSession($user->username);
             } else{
