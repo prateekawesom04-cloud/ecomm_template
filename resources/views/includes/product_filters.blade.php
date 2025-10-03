@@ -5,34 +5,12 @@
         </div>
         <div class="widgets_inner">
             <ul class="list">
-                <li>
-                    <a href="#">Frozen Fish</a>
-                    <span>(250)</span>
-                </li>
-                <li>
-                    <a href="#">Dried Fish</a>
-                    <span>(250)</span>
-                </li>
-                <li>
-                    <a href="#">Fresh Fish</a>
-                    <span>(250)</span>
-                </li>
-                <li>
-                    <a href="#">Meat Alternatives</a>
-                    <span>(250)</span>
-                </li>
-                <li>
-                    <a href="#">Fresh Fish</a>
-                    <span>(250)</span>
-                </li>
-                <li>
-                    <a href="#">Meat Alternatives</a>
-                    <span>(250)</span>
-                </li>
-                <li>
-                    <a href="#">Meat</a>
-                    <span>(250)</span>
-                </li>
+                @foreach($category as $cat)
+                        <option value='{{$cat->id}}'>{{$cat->name}}</option>
+                        <li>
+                            <a href="{{route('pages.products')}}">{{$cat->name}}</a>
+                        </li>
+                        @endforeach
             </ul>
         </div>
     </aside>
