@@ -62,13 +62,13 @@
 
 
     function setLocalStorage(userLocalStorage){
-        localStorage.setItem('userLocalStorage',userLocalStorage);
+        localStorage.setItem('userLocalStorage',JSON.stringify(userLocalStorage));
     }
 
     let userLocalStorage = {};
 
     if(localStorage.getItem('userLocalStorage')){
-        userLocalStorage = localStorage.getItem('userLocalStorage');
+        userLocalStorage = JSON.parse(localStorage.getItem('userLocalStorage'));
         userLocalStorage.favourites = userLocalStorage.favourites;
         userLocalStorage.cart = userLocalStorage.cart;
 
@@ -91,7 +91,7 @@
         
         $(this).toggleClass('active');
         let product_id = $(this).attr('data-product_id');
-        userLocalStorage.favourites[product_id] = product_id;
+        userLocalStorage.cart[product_id] = product_id;
         setLocalStorage(userLocalStorage);
         callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
         
