@@ -39,17 +39,21 @@
         $('.product_action').on('click',function(){
             // $('form').submit();
             let formData = new FormData($('#updateProduct')[0]);
-            callApiFormData('post',`{{route('post.updateProducts','0')}}`,formData,ajaxResponse);
+            callApiFormData('post',`{{route('post.updateProducts','0')}}`,formData,updateProduct);
         });
         
         $('.category_action').on('click',function(){
             let formData = new FormData($('#updateCategory')[0]);
-            callApiFormData('post',`{{route('post.category','0')}}`,formData,ajaxResponse);
+            callApiFormData('post',`{{route('post.category','0')}}`,formData,updateProduct);
         });
         
-        function response(res){
-            
-            responseToast(res.message);
+        function updateProduct(res){
+            if(res.code==200){
+                window.location.href = "{{route('admin.pages.products')}}";
+            } else{
+                ajaxResponse(res);
+            }
+
         }
     </script>
 

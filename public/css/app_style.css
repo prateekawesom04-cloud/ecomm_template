@@ -24,6 +24,10 @@ h1 {
     font-weight: 300;
 }
 
+.table td, table td, td {
+    vertical-align: middle;
+}
+
 .slim_header a {
     font-size: 10px;
 }

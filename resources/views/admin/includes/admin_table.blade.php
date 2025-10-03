@@ -12,7 +12,13 @@
             @foreach($pageData as $data)
             <tr>
               @foreach($columns as $column)
+              @if($column=='image')
+              <td>
+                <img class="" src="{{asset('storage').'/'.json_decode($data->image)[0]}}" alt="" style="width=50px">
+              </td>
+              @else
               <td>{{$data->$column}}</td>
+              @endif
               @endforeach
             </tr>
             @endforeach
