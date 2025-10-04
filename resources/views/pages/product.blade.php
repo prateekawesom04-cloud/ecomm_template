@@ -48,8 +48,8 @@
                 <input class="input-number cart_count" type="text" value="1" min="0" max="10">
                 <span data-counter="1" class="cart_counter number-increment"> <i class="ti-plus"></i></span>
               </div>
-              <a href="javascript:void(0)" class="btn_3 app_product_cart" data-product_id="{{$product->product_id}}">add to cart</a>
-              <a href="javascript:void(0)" class="like_us app_product_heart flex items-center justify-center" data-product_id="{{$product->product_id}}"> 
+              <a href="javascript:void(0)" class="btn_3 app_product_cart {{($currentUser)?'loginTrue':''}}" data-product_id="{{$product->product_id}}">add to cart</a>
+              <a href="javascript:void(0)" class="like_us app_product_heart {{($currentUser)?'loginTrue':''}} flex items-center justify-center" data-product_id="{{$product->product_id}}"> 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="" class="w-25 h-25" style="stroke: #303ab2;stroke-width: 2px;"><path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"></path></svg>  
               </a>
             </div>
