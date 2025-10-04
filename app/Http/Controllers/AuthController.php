@@ -34,7 +34,7 @@ class AuthController extends Controller
                 $user = User::where('phone',$request->phone)->first();
                 if(!$user){
                     $user = new User();
-                    $user->username = rand(100,999).substr(time(),count(time())-4).rand(00,99);
+                    $user->username = rand(100,999).substr(time(),strlen(time())-4).rand(00,99);
                     $user->phone = $request->phone;
                     $user->save();
                 }
