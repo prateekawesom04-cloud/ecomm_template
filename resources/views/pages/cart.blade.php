@@ -18,7 +18,7 @@
                             <th scope="col">Total</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="cart_items">
                         
                         {{-- @foreach(json_decode($currentUser->cart) as $cart) --}}
                         <tr>
@@ -36,11 +36,11 @@
                             <h5>$360.00</h5>
                             </td>
                             <td>
-                            <div class="product_count">
-                                <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                            </div>
+                                <div class="product_count" data-product_id="{{$product->product_id}}">
+                                    <span data-counter="-1" class="cart_counter inumber-decrement"> <i class="ti-minus"></i></span>
+                                    <input class="input-number cart_count" type="text" value="1" min="0" max="10">
+                                    <span data-counter="1" class="cart_counter number-increment"> <i class="ti-plus"></i></span>
+                                </div>
                             </td>
                             <td>
                             <h5>$720.00</h5>
@@ -61,4 +61,12 @@
 
     @include('includes.bestSellers')
     
+@endsection
+
+@section('js')
+
+<script>
+
+</script>
+
 @endsection

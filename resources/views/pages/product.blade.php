@@ -43,10 +43,10 @@
               Two fruitful let days signs sea together all land fly subdue
             </p>
             <div class="card_area d-flex justify-content-between align-items-center">
-              <div class="product_count">
-                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
-                <span class="number-increment"> <i class="ti-plus"></i></span>
+              <div class="product_count" data-product_id="{{$product->product_id}}">
+                <span data-counter="-1" class="cart_counter inumber-decrement"> <i class="ti-minus"></i></span>
+                <input class="input-number cart_count" type="text" value="1" min="0" max="10">
+                <span data-counter="1" class="cart_counter number-increment"> <i class="ti-plus"></i></span>
               </div>
               <a href="javascript:void(0)" class="btn_3 app_product_cart" data-product_id="{{$product->product_id}}">add to cart</a>
               <a href="javascript:void(0)" class="like_us app_product_heart flex items-center justify-center" data-product_id="{{$product->product_id}}"> 

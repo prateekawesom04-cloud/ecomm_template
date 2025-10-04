@@ -132,41 +132,89 @@
         }
     }
 
-    function setLocalStorage(userLocalStorage){
-        localStorage.setItem('userLocalStorage',JSON.stringify(userLocalStorage));
-    }
 
-    let userLocalStorage = {};
+    // manage localStorage start
 
-    if(localStorage.getItem('userLocalStorage')){
-        userLocalStorage = JSON.parse(localStorage.getItem('userLocalStorage'));
-        userLocalStorage.favourites = userLocalStorage.favourites;
-        userLocalStorage.cart = userLocalStorage.cart;
-
-    } else{
-        userLocalStorage.favourites = {};
-        userLocalStorage.cart = {};
-    }
-    
-    $('.app_product_heart').click(function(){
+        function setUserLocalStorage(){
+            localStorage.setItem('userLocalStorage',JSON.stringify(userLocalStorage));
+        }
         
-        $(this).toggleClass('active');
+        function getLocalStorage(key){
+            return JSON.parse(localStorage.getItem(key));
+        }
+
+        let userLocalStorage = {};
+
+        if(localStorage.getItem('userLocalStorage')){
+            userLocalStorage = JSON.parse(localStorage.getItem('userLocalStorage'));
+            userLocalStorage.favourites = userLocalStorage.favourites;
+            userLocalStorage.cart = userLocalStorage.cart;
+
+        } else{
+            userLocalStorage.favourites = {};
+            userLocalStorage.cart = {};
+        }
+        
+        // if user logged in get its cart and favourites data
+            @if($currentUser)
+
+                @if(!empty($currentUser->cart))
+                    userLocalStorage.cart = JSON.parse({{$currentUser->cart}});
+                @endif
+
+                @if(!empty($currentUser->favourites))
+                    userLocalStorage.favourites = JSON.parse({{$currentUser->favourites}});
+                @endif
+                $(document).ready(function(){
+                    setUserLocalStorage();
+                });
+            @endif
+
+    // manage localStorage end
+    
+
+    $('.app_product_heart').click(function(){
+
         let product_id = $(this).attr('data-product_id');
-        userLocalStorage.favourites[product_id] = product_id;
-        setLocalStorage(userLocalStorage);
-        callApi('post','{{route('post.updateUserData')}}',{favourites:product_id},ajaxResponse);
+        if($(this).hasClass('active')){
+            userLocalStorage.favourites[product_id] = product_id;
+            // callApi('post','{{route('post.updateUserData')}}',{favourites:product_id},ajaxResponse);
+            
+        } else{
+            delete userLocalStorage.favourites[product_id];
+            // callApi('post','{{route('post.updateUserData')}}',{favourites:product_id},ajaxResponse);
+
+        }
+        $(this).toggleClass('active');
+        setUserLocalStorage();
 
     });
 
     $('.app_product_cart').click(function(){
         
-        $(this).toggleClass('active');
         let product_id = $(this).attr('data-product_id');
-        userLocalStorage.cart[product_id] = product_id;
-        setLocalStorage(userLocalStorage);
-        callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
+        if($(this).hasClass('active')){
+            userLocalStorage.cart[product_id] = 1;
+            // callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
+            
+        } else{
+            delete userLocalStorage.cart[product_id];
+            // callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
+
+        }
+        $(this).addClass('disabled');
+        $(this).toggleClass('active');
+        setUserLocalStorage();
         
     });
 
-    
+    $('.cart_counter').click(function(){
+        let product_id = $(this).parent().attr('data-product_id');
+        $('.cart_count').val($('.cart_count').val()+$(this).attr('data-counter'));
+        userLocalStorage.cart[product_id] = $('.cart_count').val();
+        setUserLocalStorage();
+    });
+
+
+
 </script>
