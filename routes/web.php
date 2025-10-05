@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
@@ -22,9 +23,18 @@ Route::middleware(['global_middleware'])->group(function () {
     Route::get('', [IndexController::class,'index'])->name('pages.index');
     Route::get('products', [ProductController::class,'products'])->name('pages.products');
     Route::get('product/{product_id}', [ProductController::class,'product'])->name('pages.product');
-    Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
-    Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
+    
+    Route::middleware(['auth_check_middleware'])->group(function () {
 
+        Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
+        Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
+        Route::get('logout', function () {
+            Session::flush();
+            return redirect()->route('pages.index');
+        })->name('user.logout');
+
+    });
+    
     Route::get('login', function () {
         return view('pages.login'); 
     })->name('pages.login');

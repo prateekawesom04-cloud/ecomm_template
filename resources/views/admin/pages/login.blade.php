@@ -20,46 +20,55 @@
         <div class="app_modal_body md:h-[50%] h-full justify-start col-md-5 p-5 app_col app_content_box relative">
             <div class="col-md-10 scroll_main">
                 <h1 class="mb-3">Admin Login</h1>
-                <div class="flex flex-row overflow-hidden overflow-x-auto scrollContainer1">
-                    
-                    <div class="my-3 app_input_box min-w-full">
-                        <label class="m-0" for="phone">Username</label>
-                        <div class="">
-                            <span class="px-1 py-2 border-r-1 border-[#1a1a1a]">+91</span>
-                            <input class="px-1 py-2" type="text" name="username" placeholder="Enter your username">
+                {{-- <div> --}}
+                    <form class="flex flex-row overflow-hidden overflow-x-auto scrollContainer1" action="{{route('admin.post.login')}}" method="post">
+                        @csrf
+                        <div class="my-3 app_input_box min-w-full">
+                            <label class="m-0" for="phone">Username</label>
+                            <div class="">
+                                <span class="px-1 py-2 border-r-1 border-[#1a1a1a]">+91</span>
+                                <input class="px-1 py-2" type="text" name="username" placeholder="Enter your username">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="my-3 min-w-full">
-                        <label class="m-0" for="otp">Enter Password</label>
-                        <div class="">
-                            <input class="px-1 py-2" type="password" name="password" placeholder="Enter Password">
+                        
+                        <div class="my-3 min-w-full">
+                            <label class="m-0" for="otp">Enter Password</label>
+                            <div class="">
+                                <input class="px-1 py-2" type="password" name="password" placeholder="Enter Password">
+                            </div>
                         </div>
-                    </div>
+                        
+                    </form>
 
-                </div>
+                {{-- </div> --}}
                 <div class="flex justify-end">
                     <a href="javascript:void(0)" class="app_btn app_scroll_arrow admin_login active" data-scroll="+">Continue</a>
                 </div>
             </div>
         </div>
     </div>
+    @include('includes.app_toast')
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/tailwind.js')}}"></script>
     @include('admin.includes.ajaxCall')
+    @include('includes.main_js')
     @include('includes.js')
 
     <script>
         $('.admin_login').click(function(){
             if(!$(this).hasClass('active')){
-                $(this).attr('href',"{{route('admin.post.login')}}");
+                $('form').submit();
             } else{
                 $(this).text('Login');
                 $(this).removeClass('active');
                 $(this).attr('data-scroll','-');
             }
         });
+
+        @if (session('message'))
+            responseToast('{{session('message')}}');
+        @endif
     </script>
 
 </body>

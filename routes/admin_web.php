@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminDataController;
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Models\Product;
 
 
@@ -13,7 +14,7 @@ Route::middleware(['global_middleware'])->group(function () {
         Route::get('', [AdminDataController::class,'index'])->name('admin.pages.index');
         Route::get('login', function(){
             return view('admin.pages.login');
-        })->name('admin.pages.index');
+        })->name('admin.pages.login');
         Route::get('orders', [AdminDataController::class,'orders'])->name('admin.pages.orders');
         Route::get('products', [AdminDataController::class,'products'])->name('admin.pages.products');
         Route::get('customers', [AdminDataController::class,'customers'])->name('admin.pages.customers');
@@ -24,7 +25,7 @@ Route::middleware(['global_middleware'])->group(function () {
         
         // post
         
-        Route::post('login', [AdminDataController::class,'login'])->name('admin.post.login');
+        Route::post('login', [AdminAuthController::class,'login'])->name('admin.post.login');
 
     });
 });

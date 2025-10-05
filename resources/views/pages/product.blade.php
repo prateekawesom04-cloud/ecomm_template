@@ -27,22 +27,21 @@
         <div class="col-md-6 col-lg-4">
           <div class="s_product_text">
             
-            <h3>Faded SkyBlu Denim Jeans</h3>
-            <h2>$149.99</h2>
+            <h3>{{$product->title}}</h3>
+            <h2>{{$product->price}}</h2>
             <ul class="list">
               <li>
                 <a class="active" href="#">
-                  <span>Category</span> : Household</a>
+                  <span>Category</span> : {{$product->category_id}}</a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="#"> <span>Availibility</span> : In Stock</a>
-              </li>
+              </li> --}}
             </ul>
             <p>
-              First replenish living. Creepeth image image. Creeping can't, won't called.
-              Two fruitful let days signs sea together all land fly subdue
+              {{$product->description}}
             </p>
-            <div class="card_area d-flex justify-content-between align-items-center">
+            <div class="card_area d-flex justify-content-between align-items-center productInfo" data-product_id="{{$product->product_id}}" data-image="{{asset('storage').'/'.json_decode($product->image)[0]}}" data-title="{{$product->title}}" data-price="{{$product->price}}">
               <div class="product_count" data-product_id="{{$product->product_id}}">
                 <span class="cart_counter inumber-decrement"> <i class="ti-minus"></i></span>
                 <input class="input-number cart_count" type="text" value="1" min="1">

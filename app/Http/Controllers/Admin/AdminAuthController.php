@@ -13,26 +13,26 @@ class AdminAuthController extends Controller
     //
     public function login(Request $request){
         
-        $user = User::where('user_uid',$request->username)
-        ->whereIn('status', [0,1,2,3,4])
+        $user = User::where('username',$request->username)
+        ->whereIn('role', [0])
         ->first();
         
         if(empty($user)){
-            return redirect()->route('admin.login')->with([
-                'error'=> 'Wrong User Credentials',
-                'error_code'=> '104'
+            return redirect()->route('admin.pages.login')->with([
+                'message'=> 'User Not found',
+                'code'=> '104'
             ]);
         }
 
         if(Hash::check($request->password,$user->password)){
             Session::put([
-                'admin_session'=>$user->id.'_user_'.$user->user_uid
+                'admin_username'=>$request->username
             ]);
-            return redirect()->route('admin.index');
+            return redirect()->route('admin.pages.index');
         } else{
-            return redirect()->route('admin.login')->with([
-                'error'=> 'Wrong User Credentials',
-                'error_code'=> '104'
+            return redirect()->route('admin.pages.login')->with([
+                'message'=> 'Wrong User Credentials',
+                'code'=> '104'
             ]);
         }
     }

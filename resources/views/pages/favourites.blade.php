@@ -14,96 +14,10 @@
                         <tr>
                             <th scope="col">Product</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                            <div class="media">
-                                <div class="d-flex">
-                                <img src="img/product/single-product/cart-1.jpg" alt="" />
-                                </div>
-                                <div class="media-body">
-                                <p>Minimalistic shop for multipurpose use</p>
-                                </div>
-                            </div>
-                            </td>
-                            <td>
-                            <h5>$360.00</h5>
-                            </td>
-                            <td>
-                            <div class="product_count">
-                                <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                            </div>
-                            </td>
-                            <td>
-                            <h5>$720.00</h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <div class="media">
-                                <div class="d-flex">
-                                <img src="img/product/single-product/cart-1.jpg" alt="" />
-                                </div>
-                                <div class="media-body">
-                                <p>Minimalistic shop for multipurpose use</p>
-                                </div>
-                            </div>
-                            </td>
-                            <td>
-                            <h5>$360.00</h5>
-                            </td>
-                            <td>
-                            <div class="product_count">
-                                <!-- <input type="text" value="1" min="0" max="10" title="Quantity:"
-                                class="input-text qty input-number" />
-                                <button
-                                class="increase input-number-increment items-count" type="button">
-                                <i class="ti-angle-up"></i>
-                                </button>
-                                <button
-                                class="reduced input-number-decrement items-count" type="button">
-                                <i class="ti-angle-down"></i>
-                                </button> -->
-                                <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                            </div>
-                            </td>
-                            <td>
-                            <h5>$720.00</h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <div class="media">
-                                <div class="d-flex">
-                                <img src="img/product/single-product/cart-1.jpg" alt="" />
-                                </div>
-                                <div class="media-body">
-                                <p>Minimalistic shop for multipurpose use</p>
-                                </div>
-                            </div>
-                            </td>
-                            <td>
-                            <h5>$360.00</h5>
-                            </td>
-                            <td>
-                            <div class="product_count">
-                                <span class="input-number-decrement"> <i class="ti-angle-down"></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                <span class="input-number-increment"> <i class="ti-angle-up"></i></span>
-                            </div>
-                            </td>
-                            <td>
-                            <h5>$720.00</h5>
-                            </td>
-                        </tr>
+                        <tbody id="cart_items">
+                            
                         </tbody>
                     </table>
                     </div>
@@ -115,5 +29,59 @@
         </div>
   </section>
   <!--================End Cart Area =================-->
+
+@endsection
+
+
+@section('js')
+
+<script>
+
+    function renderTable(){
+        let userLocalStorage = getLocalStorage('userLocalStorage');
+        let table = ``;
+        $.each(userLocalStorage.favourites,function(key,product){
+            
+            table += `
+                <tr>
+                    <td>
+                    <a href="{{url('product')}}/${product.product_id}" class="media">
+                        <div class="d-flex">
+                        <img src="${product.image}" alt="" style="width: 9rem;" />
+                        </div>
+                        <div class="media-body">
+                        <p>${product.title}</p>
+                        </div>
+                    </a>
+                    </td>
+                    <td>
+                    <h5>${product.price}</h5>
+                    </td>
+                    <td>
+                        <a class="delteItem block w-7" href="javascript:void(0)" data-product_id="${product.product_id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.755 20.283 4 8h16l-1.755 12.283A2 2 0 0 1 16.265 22h-8.53a2 2 0 0 1-1.98-1.717zM21 4h-5V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+            `;
+            console.log('table--',table);
+            
+        });
+            
+        $('#cart_items').html(table);
+    }
+    
+    
+    $(document).ready(function(){
+        renderTable();
+    });
+    
+    
+    $('body').on('click','.delteItem',function(){
+        deleteFavouritesItem($(this).attr('data-product_id'));
+        renderTable();
+    });
+
+</script>
 
 @endsection

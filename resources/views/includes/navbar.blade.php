@@ -18,31 +18,39 @@
                                 </a>
 
                                 <div class="app_search flex-row items-center p-3 bg-gray-100 w-64 h-6 rounded-md gap-4 hidden lg:flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" style="font-size: 24px;" class="w-1/6" stroke="none"><path stroke="#303030" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.926 11.338a7.588 7.588 0 1 1-15.176 0 7.588 7.588 0 0 1 15.176 0Zm-1.692 5.896L21 21"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" style="font-size: 16px;" class="w-1/6" stroke="none"><path stroke="#303030" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.926 11.338a7.588 7.588 0 1 1-15.176 0 7.588 7.588 0 0 1 15.176 0Zm-1.692 5.896L21 21"></path></svg>
                                     <input class="bg-transparent border-none outline-none w-5/6" type="text" name="search" placeholder="Search by Products">
                                 </div>
                             </div>
 
                             <div class="flex flex-row items-center justify-end gap-1">
+                                @if(!$currentUser)
                                 <div class="main-menu-item basis-autoe" id="ds_navLinks">
-                                    @if(!session('username'))
                                     <a href="javascript:void(0)" class="btn customBg p-2 my-1 rounded-0 app_login">Login/Sign Up</a>
-                                    @endif
                                 </div>
-                                <div class="hearer_icon d-flex">
-                                    <a href="{{route('pages.favourites')}}"><i class="ti-heart"></i></a>
-                                    <div class="dropdown cart">
-                                        <a class="dropdown-toggle" href="{{route('pages.cart')}}" id="navbarDropdown3">
-                                            <i class="fas fa-cart-plus"></i>
-                                        </a>
+                                @else
+                                <div class="hearer_icon d-flex items-center">
+                                    <a class="relative" href="{{route('pages.favourites')}}">
+                                        <i class="ti-heart"></i>
+                                        <span class="app_counter app_n_heart" style="display: none;"></span>
+                                    </a>
+                                    <a class="relative" href="{{route('pages.cart')}}">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <span class="app_counter app_n_cart" style="display: none;"></span>
+                                    </a>
+                                    <a class="relative logout" href="{{route('user.logout')}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 23px;height: 23px;"><path d="M256 73.825a182.18 182.18 0 0 0-182.18 182.18c0 100.617 81.567 182.17 182.18 182.17a182.175 182.175 0 1 0 0-364.35zm-18.096 86.22a18.099 18.099 0 0 1 36.197 0v53.975a18.099 18.099 0 0 1-36.197 0zM256 348.589a92.413 92.413 0 0 1-32.963-178.751v33.38a62.453 62.453 0 1 0 65.93 0v-33.38A92.415 92.415 0 0 1 256 348.588z" data-name="Logout"></path></svg>
+                                    </a>
+                                    {{-- <div class="dropdown cart"> --}}
                                         <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <div class="single_product">
             
                                             </div>
                                         </div> -->
                                         
-                                    </div>
+                                    {{-- </div> --}}
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </nav>

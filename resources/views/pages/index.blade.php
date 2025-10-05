@@ -68,7 +68,7 @@
 
 
     <!-- product_list start-->
-    <section class="product_list section_padding">
+    {{-- <section class="product_list section_padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- product_list part start-->
 
     @include('includes.bestSellers')

@@ -23,7 +23,9 @@
 <div class="app_custom_modal flex flex-col" style="display:none;">
     <div class="app_modal_body md:h-[50%] h-full justify-start col-md-5 p-5 app_col app_content_box relative">
         <a href="javascript:void(0)" class="btn-close btn-sm absolute right-[5px] top-[5px]" style="width: 30px;">
-            <span class="MuiIconButton-label"><img src="https://assets-cloud.landmarkshops.in/website_images/static-pages/brand_exp/brand2images/icons/close-black-24.svg" alt=""></span>
+            <span class="MuiIconButton-label">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.586 6.293-6.293a1 1 0 0 1 1.414 1.414l-6.293 6.293 6.293 6.293a1 1 0 0 1 -1.414 1.414l-6.293-6.293-6.293 6.293a1 1 0 1 1 -1.414-1.414l6.293-6.293-6.293-6.293a1 1 0 0 1 1.414-1.414z"/></svg>
+            </span>
         </a>  
         <div class="col-md-10 scroll_main">
             <h2 class="mb-3">Sign up or Sign in</h2>
@@ -34,14 +36,14 @@
                     <label class="m-0" for="phone">Mobile Number</label>
                     <div class="">
                         <span class="px-1 py-2 border-r-1 border-[#1a1a1a]">+91</span>
-                        <input class="px-1 py-2" type="text" name="phone" placeholder="Enter your mobile number">
+                        <input class="px-1 py-2" type="text" name="phone" placeholder="Enter your mobile number" maxlength="10">
                     </div>
                 </div>
                 
                 <div class="my-3 min-w-full">
                     {{-- <label class="m-0" for="otp">Enter OTP</label> --}}
                     <div class="">
-                        <input class="px-1 py-2" type="text" name="otp" placeholder="Enter OTP">
+                        <input class="px-1 py-2" type="text" name="otp" placeholder="Enter OTP" maxlength="6">
                     </div>
                     <div class="otpCounter" style="display:none;">
                         Resend OTP in <span id="otpCounter"></span>

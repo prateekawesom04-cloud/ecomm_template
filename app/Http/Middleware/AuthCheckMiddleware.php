@@ -23,7 +23,7 @@ class AuthCheckMiddleware
                     'code'=> '405'
                 ]);
             }
-            return redirect()->route('login');
+            return redirect()->route('pages.index');
         } else{
             return $next($request);
         }

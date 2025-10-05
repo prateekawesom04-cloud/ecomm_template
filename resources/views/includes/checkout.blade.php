@@ -7,29 +7,19 @@
                     <span>Total</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#">Fresh Blackberry
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Fresh Tomatoes
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Fresh Brocoli
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
+                <ul class="checkout_items">
+                  <li>
+                    <a href="#">Fresh Blackberry
+                      <span class="middle">x 02</span>
+                      <span class="last">$720.00</span>
+                    </a>
+                  </li>
+                </ul>
               </ul>
               <ul class="list list_2">
                 <li>
                   <a href="#">Subtotal
-                    <span>$2160.00</span>
+                    <span class="subTotalAmount">$2160.00</span>
                   </a>
                 </li>
                 <li>
@@ -39,7 +29,7 @@
                 </li>
                 <li>
                   <a href="#">Total
-                    <span>$2210.00</span>
+                    <span class="totalAmount">$2210.00</span>
                   </a>
                 </li>
               </ul>

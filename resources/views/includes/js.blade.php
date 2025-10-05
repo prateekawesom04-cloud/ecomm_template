@@ -145,6 +145,9 @@
 
         let userLocalStorage = {};
 
+        userLocalStorage.favourites = {};
+        userLocalStorage.cart = {};
+        
         if(localStorage.getItem('userLocalStorage')){
             userLocalStorage = JSON.parse(localStorage.getItem('userLocalStorage'));
             userLocalStorage.favourites = userLocalStorage.favourites;
@@ -153,9 +156,12 @@
         } else{
             // if user logged in get its cart and favourites data
             @if($currentUser)
-
-                userLocalStorage.cart = JSON.parse({{$currentUser->cart}});
-                userLocalStorage.favourites = JSON.parse({{$currentUser->favourites}});
+                @if($currentUser->cart)
+                    userLocalStorage.cart = JSON.parse({{$currentUser->cart}});
+                @endif
+                @if($currentUser->favourites)
+                    userLocalStorage.favourites = JSON.parse({{$currentUser->favourites}});
+                @endif
                 setUserLocalStorage();
 
                 // @if(!empty($currentUser->cart))
@@ -171,23 +177,32 @@
                 //     setUserLocalStorage();
                 // });
 
-            @else
-                userLocalStorage.favourites = {};
-                userLocalStorage.cart = {};
             @endif
         }
         
+        updateHeart();
+        updateCart();
 
     // manage localStorage end
     
+    // update nav counters
+    
+    function updateHeart(){
+        let cartCount = Object.keys(userLocalStorage.favourites).length;
+        (cartCount)?$('.app_n_heart').show():$('.app_n_heart').hide();
+        $('.app_n_heart').html(cartCount);
+    }
+
     
     function addToFavourites(btn){
         let productInfo = $(btn).parents('.productInfo');
-        let product_id = $(productInfo).attr('data-product_id');
+        let product_id = `${$(productInfo).attr('data-product_id')}`;
         let image = $(productInfo).attr('data-image');
         let title = $(productInfo).attr('data-title');
         let price = $(productInfo).attr('data-price');
-
+        console.log('product_id---',product_id);
+        
+        userLocalStorage.favourites[product_id]={};
         userLocalStorage.favourites[product_id]['product_id'] = product_id;
         userLocalStorage.favourites[product_id]['title'] = title;
         userLocalStorage.favourites[product_id]['image'] = image;
@@ -202,19 +217,29 @@
         }
 
         let product_id = $(this).attr('data-product_id');
-        if($(this).hasClass('active')){
+        if(!$(this).hasClass('active')){
             addToFavourites($(this));
+            responseToast('Added to favourites');
             // callApi('post','{{route('post.updateUserData')}}',{favourites:product_id},ajaxResponse);
             
         } else{
             delete userLocalStorage.favourites[product_id];
+            responseToast('Removed from favourites');
             // callApi('post','{{route('post.updateUserData')}}',{favourites:product_id},ajaxResponse);
 
         }
         $(this).toggleClass('active');
         setUserLocalStorage();
+        updateHeart();
+        
 
     });
+    
+    function updateCart(){
+        let cartCount = Object.keys(userLocalStorage.cart).length;
+        (cartCount)?$('.app_n_cart').show():$('.app_n_cart').hide();
+        $('.app_n_cart').html(cartCount);
+    }
 
     function addToCart(btn){
         let productInfo = $(btn).parents('.productInfo');
@@ -224,6 +249,7 @@
         let price = $(productInfo).attr('data-price');
         let quantity = $('.cart_count').val();
 
+        userLocalStorage.cart[product_id]={};
         userLocalStorage.cart[product_id]['product_id'] = product_id;
         userLocalStorage.cart[product_id]['title'] = title;
         userLocalStorage.cart[product_id]['image'] = image;
@@ -232,35 +258,54 @@
     }
 
     $('.app_product_cart').click(function(){
-        
+        let product_id = $(this).attr('data-product_id');
+
+
         if(!$(this).hasClass('loginTrue')){
             $('.app_custom_modal').show();
             return false;
         }
 
-        let product_id = $(this).attr('data-product_id');
-        if($(this).hasClass('active')){
+        if(!$(this).hasClass('active')){
             addToCart($(this));
+            responseToast('Added to cart');
             // callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
             
         } else{
             delete userLocalStorage.cart[product_id];
+            responseToast('Removed from cart');
             // callApi('post','{{route('post.updateUserData')}}',{cart:product_id},ajaxResponse);
 
         }
         $(this).addClass('disabled');
         $(this).toggleClass('active');
         setUserLocalStorage();
+        updateCart();
         
     });
 
     $('.cart_counter').click(function(){
         @if($currentUser)
+        let productInfo = $(this).parents('.productInfo');
+        let product_id = $(productInfo).attr('data-product_id');
         userLocalStorage.cart[product_id]['quantity'] = $('.cart_count').val();
         setUserLocalStorage();
         @endif
     });
 
+    function deleteCartItem(product_id){
+        delete userLocalStorage.cart[product_id];
+        setUserLocalStorage();
+        updateCart();
+        responseToast('Removed from Cart');
+    }
+    
+    function deleteFavouritesItem(product_id){
+        delete userLocalStorage.favourites[product_id];
+        setUserLocalStorage();
+        updateHeart();
+        responseToast('Removed from Favourites');
+    }
 
 
 </script>

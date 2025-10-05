@@ -68,6 +68,14 @@ a.app_btn {
     .btn-link {
         color: #4045ba;
     }
+
+    .logout svg {
+        fill: #000;
+    }
+}
+
+.main_menu a i, .main_menu a svg {
+  margin: 0 0.7rem;
 }
 
 .app_input_box{
@@ -180,3 +188,16 @@ input, input:hover, input:focus {
     justify-content: space-between;
 }
 
+.app_counter {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #303ab2;
+    width: 14px;
+    height: 14px;
+    right: -8px;
+    top: -8px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 10px;
+    color: #fff;
+}

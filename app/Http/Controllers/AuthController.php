@@ -89,10 +89,10 @@ class AuthController extends Controller
         Session::put('user_phone',$request->phone);
         Session::put('otp_expiry_time',time() + (120));
 
-        // return response()->json([
-        //     'message'=>$otp,
-        //     'code'=>200
-        // ]);
+        return response()->json([
+            'message'=>$otp,
+            'code'=>200
+        ]);
         
         $data = [
             'APIKey'=>env('SMS_API_KEY'),
