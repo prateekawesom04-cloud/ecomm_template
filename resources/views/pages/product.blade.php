@@ -44,9 +44,10 @@
             </p>
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count" data-product_id="{{$product->product_id}}">
-                <span data-counter="-1" class="cart_counter inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number cart_count" type="text" value="1" min="0" max="10">
-                <span data-counter="1" class="cart_counter number-increment"> <i class="ti-plus"></i></span>
+                <span class="cart_counter inumber-decrement"> <i class="ti-minus"></i></span>
+                <input class="input-number cart_count" type="text" value="1" min="1">
+                {{-- <input class="input-number cart_count" type="text" value="1" min="1" max="10"> --}}
+                <span class="cart_counter number-increment"> <i class="ti-plus"></i></span>
               </div>
               <a href="javascript:void(0)" class="btn_3 app_product_cart {{($currentUser)?'loginTrue':''}}" data-product_id="{{$product->product_id}}">add to cart</a>
               <a href="javascript:void(0)" class="like_us app_product_heart {{($currentUser)?'loginTrue':''}} flex items-center justify-center" data-product_id="{{$product->product_id}}"> 

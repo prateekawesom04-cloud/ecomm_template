@@ -22,7 +22,7 @@
 
 <div class="app_custom_modal flex flex-col" style="display:none;">
     <div class="app_modal_body md:h-[50%] h-full justify-start col-md-5 p-5 app_col app_content_box relative">
-        <a href="javascript:void(0)" class="btn-close btn-sm absolute right-[5px] top-[5px]">
+        <a href="javascript:void(0)" class="btn-close btn-sm absolute right-[5px] top-[5px]" style="width: 30px;">
             <span class="MuiIconButton-label"><img src="https://assets-cloud.landmarkshops.in/website_images/static-pages/brand_exp/brand2images/icons/close-black-24.svg" alt=""></span>
         </a>  
         <div class="col-md-10 scroll_main">

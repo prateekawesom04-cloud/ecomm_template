@@ -255,8 +255,6 @@
     });
 
     $('.cart_counter').click(function(){
-        let product_id = $(this).parent().attr('data-product_id');
-        $('.cart_count').val($('.cart_count').val()+$(this).attr('data-counter'));
         @if($currentUser)
         userLocalStorage.cart[product_id]['quantity'] = $('.cart_count').val();
         setUserLocalStorage();
