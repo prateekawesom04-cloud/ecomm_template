@@ -70,7 +70,7 @@ class AuthController extends Controller
             return response()->json([
                 'response'=> 'Sign In Successfully',
                 'code'=> '200',
-                'redirect'=>route('index')
+                'redirect'=>route('pages.index')
             ]);
 
         }
