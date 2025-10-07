@@ -31,10 +31,8 @@ class UserController extends Controller
             $request = new Request();
             $request->email = $user->email;
 
-            Log::info('This is an informational message.----'.$user->email);
-
-            (new AuthController())->signIn($request);
-            
+            $redirect = json_decode($this->signin($request)->getContent());
+            return redirect($redirect->redirect);
         } catch (Throwable $e) {
             return redirect('/')->with('error', 'Google authentication failed.');
         }
