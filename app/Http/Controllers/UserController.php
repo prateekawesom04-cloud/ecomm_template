@@ -41,11 +41,13 @@ class UserController extends Controller
 
     function updateUserData(Request $request){
         $user = $this->getCurrentUser();
-
+        $request = json_decode($request->userLocalStorage);
+        
         if($request->cart){
-            $user->cart = dd(json_decode($request->cart));
-        } else if($request->favourites){
-            $user->favourites = json_decode($request->favourites);
+            $user->cart = json_encode($request->cart);
+        }
+        if($request->favourites){
+            $user->favourites = json_encode($request->favourites);
         }
         $user->save();
 

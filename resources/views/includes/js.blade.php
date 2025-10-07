@@ -137,6 +137,11 @@
 
         function setUserLocalStorage(){
             localStorage.setItem('userLocalStorage',JSON.stringify(userLocalStorage));
+            updateCart();
+            updateHeart();
+            userLocalStorageData = localStorage.getItem('userLocalStorage');
+
+            callApi('post','{{route("post.updateUserData")}}',{userLocalStorage:userLocalStorageData});
         }
         
         function getLocalStorage(key){
@@ -148,40 +153,30 @@
         userLocalStorage.favourites = {};
         userLocalStorage.cart = {};
         
-        if(localStorage.getItem('userLocalStorage')){
-            userLocalStorage = JSON.parse(localStorage.getItem('userLocalStorage'));
-            userLocalStorage.favourites = userLocalStorage.favourites;
-            userLocalStorage.cart = userLocalStorage.cart;
+     
+        // if user logged in get its cart and favourites data
+        @if($currentUser)
+        
+            // if(localStorage.getItem('userLocalStorage')){
+            //     userLocalStorage = JSON.parse(localStorage.getItem('userLocalStorage'));
+            //     userLocalStorage.favourites = userLocalStorage.favourites;
+            //     userLocalStorage.cart = userLocalStorage.cart;
 
-        } else{
-            // if user logged in get its cart and favourites data
-            @if($currentUser)
+            // } else{
+
                 @if($currentUser->cart)
-                    userLocalStorage.cart = JSON.parse({{$currentUser->cart}});
+                    userLocalStorage.cart = JSON.parse(JSON.stringify({!!$currentUser->cart!!}));
                 @endif
                 @if($currentUser->favourites)
-                    userLocalStorage.favourites = JSON.parse({{$currentUser->favourites}});
+                    userLocalStorage.favourites = JSON.parse(JSON.stringify({!! $currentUser->favourites !!}));
                 @endif
-                setUserLocalStorage();
+                // setUserLocalStorage();
+                localStorage.setItem('userLocalStorage',JSON.stringify(userLocalStorage));
 
-                // @if(!empty($currentUser->cart))
-                //     userLocalStorage.cart = JSON.parse({{$currentUser->cart}});
-                //     userLocalStorage.favourites = JSON.parse({{$currentUser->favourites}});
-                // @endif
+            // }
 
-                // @if(!empty($currentUser->favourites))
-                //     userLocalStorage.favourites = JSON.parse({{$currentUser->favourites}});
-                // @endif
-
-                // $(document).ready(function(){
-                //     setUserLocalStorage();
-                // });
-
-            @endif
-        }
+        @endif
         
-        updateHeart();
-        updateCart();
 
     // manage localStorage end
     
@@ -200,8 +195,10 @@
         let image = $(productInfo).attr('data-image');
         let title = $(productInfo).attr('data-title');
         let price = $(productInfo).attr('data-price');
-        console.log('product_id---',product_id);
         
+        console.log('userLocalStorage--',userLocalStorage);
+        
+
         userLocalStorage.favourites[product_id]={};
         userLocalStorage.favourites[product_id]['product_id'] = product_id;
         userLocalStorage.favourites[product_id]['title'] = title;
@@ -230,7 +227,6 @@
         }
         $(this).toggleClass('active');
         setUserLocalStorage();
-        updateHeart();
         
 
     });
@@ -280,7 +276,6 @@
         $(this).addClass('disabled');
         $(this).toggleClass('active');
         setUserLocalStorage();
-        updateCart();
         
     });
 
@@ -296,16 +291,21 @@
     function deleteCartItem(product_id){
         delete userLocalStorage.cart[product_id];
         setUserLocalStorage();
-        updateCart();
         responseToast('Removed from Cart');
     }
     
     function deleteFavouritesItem(product_id){
         delete userLocalStorage.favourites[product_id];
         setUserLocalStorage();
-        updateHeart();
         responseToast('Removed from Favourites');
     }
 
+
+    $(document).ready(function(){
+        if(localStorage.getItem('userLocalStorage')){
+            updateCart();
+            updateHeart();
+        }
+    });
 
 </script>
