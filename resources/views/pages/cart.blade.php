@@ -28,15 +28,17 @@
                     </table>
                     </div>
                 </div>
+
+
+                {{-- Checkout UserInfo Form --}}
+                @include('includes.checkoutForm')
             </div>
             <div class="col-md-4">
                 @include('includes.checkout')
             </div>
         </div>
   </section>
-  <!--================End Cart Area =================-->
-
-    @include('includes.bestSellers')
+  
     
 @endsection
 
