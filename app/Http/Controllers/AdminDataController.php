@@ -50,7 +50,8 @@ class AdminDataController extends Controller
             ]);
         }
         $columns = $this->getColumns(new Product());
-        $pageData = Product::where('status',1)->get();
+        $columns = ['product_id','title','price','image','stock_quantity'];
+        $pageData = Product::select('product_id','title','price','image','stock_quantity')->where('status',1)->get();
         return view('admin.pages.products',compact('pageData','columns')); 
     }
     
@@ -62,8 +63,10 @@ class AdminDataController extends Controller
                 'code'=>'200'
             ]);
         }
-        $columns = $this->getColumns(new User());
-        $pageData = User::where('role',2)->get();
+        // $columns = $this->getColumns(new User());
+        $columns = ['name','phone'];
+        // dd($columns);
+        $pageData = User::select('name','phone')->where('role',2)->get();
         return view('admin.pages.customers',compact('pageData','columns')); 
     }
     
