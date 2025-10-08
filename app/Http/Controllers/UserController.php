@@ -12,7 +12,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 use App\Models\User;
 use App\AdminTrait;
-use AuthController;
+use App\Http\Controllers\AuthController;
 
 class UserController extends Controller
 {
@@ -32,6 +32,7 @@ class UserController extends Controller
             $request->email = $user->email;
 
             $redirect = json_decode($this->signin($request)->getContent());
+            dd($redirect->redirect);
             return redirect($redirect->redirect);
         } catch (Throwable $e) {
             return redirect('/')->with('error', 'Google authentication failed.');

@@ -34,7 +34,7 @@ class AuthController extends Controller
                 $user = User::where('phone',$request->phone)->first();
                 if(!$user){
                     $user = new User();
-                    $user->username = rand(100,999).substr(time(),strlen(time())-4).rand(00,99);
+                    $user->username = $request->phone;
                     $user->phone = $request->phone;
                     $user->save();
                 }
@@ -47,18 +47,11 @@ class AuthController extends Controller
                 Log::info('This is an informational message.'.$request->email);
                 $user = User::where('email',$request->email)->first();
                 if(!$user){
-                    try {
-                        $user = new User();
-                        $user->username = rand(100,999).substr(time(),count(time())-4).rand(00,99);
-                        $user->email = $request->email;
-                        $user->save();
-                    } catch (QueryException $e) {
-                        Log::error('Database error during Eloquent operation: ' . $e->getMessage(), [
-                            'file' => $e->getFile(),
-                            'line' => $e->getLine(),
-                            'code' => $e->getCode(),
-                        ]);
-                    }
+                    
+                    $user = new User();
+                    $user->username = $request->email;
+                    $user->email = $request->email;
+                    $user->save();
                 }
                 $this->setUserSession($user->username);
             } else{
