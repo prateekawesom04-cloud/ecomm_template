@@ -201,3 +201,11 @@ input, input:hover, input:focus {
     font-size: 10px;
     color: #fff;
 }
+
+.zoom {
+  transform: scale(1.5); 
+}
+
+.zoom:hover {
+  transform: scale(1.5); 
+}
