@@ -9,23 +9,23 @@
             <div class="col-md-8">
                 <div class="cart_inner">
                     <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Product</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody id="cart_items">
-                        
-                        {{-- @foreach(json_decode($currentUser->cart) as $cart) --}}
-                        
-                        {{-- @endforeach --}}
-                        </tbody>
-                    </table>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cart_items">
+                            
+                            {{-- @foreach(json_decode($currentUser->cart) as $cart) --}}
+                            
+                            {{-- @endforeach --}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -135,6 +135,7 @@
         $(this).siblings('.cart_count').val(parseInt($(this).siblings('.cart_count').val())+parseInt($(this).attr('data-counter')));
         userLocalStorage.cart[product_id]['quantity'] = $(this).siblings('.cart_count').val();
         setUserLocalStorage();
+        renderTable();
         updateCheckout();
     });
 

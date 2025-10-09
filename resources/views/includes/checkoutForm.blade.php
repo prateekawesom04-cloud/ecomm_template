@@ -1,6 +1,6 @@
 
 <div class="my-3 billing_details">
-    <h3 class="mb-3">Billing Details</h3>
+    <h3 class="mb-3">Shipping Details</h3>
     <form class="row contact_form" action="#" method="post" novalidate="novalidate">
         <div class="col-md-6 form-group p_star">
             <input type="text" class="form-control" id="first" name="fullname" />
@@ -47,12 +47,7 @@
         </div> --}}
         </div>
         <div class="col-md-12 form-group">
-        <div class="creat_account">
-            <h3>Shipping Details</h3>
-            <input type="checkbox" id="f-option3" name="selector" />
-            <label for="f-option3">Ship to a different address?</label>
-        </div>
-        <textarea class="form-control" name="message" id="message" rows="1"
+            <textarea class="form-control" name="message" id="message" rows="1"
             placeholder="Order Notes"></textarea>
         </div>
     </form>
