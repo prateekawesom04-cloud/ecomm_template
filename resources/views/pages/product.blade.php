@@ -74,10 +74,17 @@
 
   <script>
     $('img').click(function(){
+      
       let imageSrc = $(this).attr('src');
+      console.log('imageSrc------',imageSrc);
       $('.imageModel').show();
       $('.imageModel').find('img').attr('src',imageSrc);
     });
+    
+    $('.btn-close').click(()=>{
+        $('.imageModel').hide();
+    });
+
   </script>
 
 @endsection

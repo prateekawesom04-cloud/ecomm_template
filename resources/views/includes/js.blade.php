@@ -308,4 +308,29 @@
         }
     });
 
+    // Shipping details data
+
+    let shipping_details = {};
+    
+    @if($currentUser->shipping_details)
+        shipping_details = JSON.parse(JSON.stringify({!!$currentUser->shipping_details!!}));
+    @endif
+
+    function storeShipping(){
+        localStorage.setItem('shipping_details',JSON.stringify(shipping_details));
+    }
+
+    $('.shipping_details').click(function(){
+
+        let formData = new FormData($(this).parents('form')[0]);
+        shipping_details[Object.keys(shipping_details).length] = Object.fromEntries(formData.entries());
+        console.log('formData---2---',shipping_details);
+        storeShipping();
+
+        callApi('post','{{route("post.update_shipping_details")}}',{userLocalStorage:userLocalStorageData});
+        
+        // callApiFormData()
+    });
+
+
 </script>

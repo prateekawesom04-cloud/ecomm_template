@@ -28,6 +28,11 @@ Route::middleware(['global_middleware'])->group(function () {
 
         Route::get('cart', [ProductController::class,'cart'])->name('pages.cart');
         Route::get('favourites', [ProductController::class,'favourites'])->name('pages.favourites');
+        
+        Route::post('updateUserData', [UserController::class,'updateUserData'])->name('post.updateUserData');
+        
+        Route::post('update_shipping_details', [UserController::class,'update_shipping_details'])->name('post.update_shipping_details')->withoutMiddleware([VerifyCsrfToken::class]);
+
         Route::get('logout', function () {
             Session::flush();
             return redirect()->route('pages.index');

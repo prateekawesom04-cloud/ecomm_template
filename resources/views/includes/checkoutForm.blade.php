@@ -1,7 +1,7 @@
 
 <div class="my-3 billing_details">
     <h3 class="mb-3">Shipping Details</h3>
-    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+    <form class="row contact_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
         <div class="col-md-6 form-group p_star">
             <input type="text" class="form-control" id="first" name="fullname" />
             <span class="placeholder" data-placeholder="Full name"></span>
@@ -50,5 +50,6 @@
             <textarea class="form-control" name="message" id="message" rows="1"
             placeholder="Order Notes"></textarea>
         </div>
+        <a href="javascript:void(0)" class="btn_3 mx-auto shipping_details">Add Details</a>
     </form>
 </div>

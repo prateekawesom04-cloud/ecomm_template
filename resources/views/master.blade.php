@@ -51,7 +51,7 @@
     
     </div>
     @include('includes.loader')
-    @if($currentUser)
+    @if(!$currentUser)
     @include('includes.appModal')
     @endif
     @include('includes.app_toast')

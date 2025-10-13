@@ -58,4 +58,15 @@ class UserController extends Controller
 
     }
 
+    public function add_shipping_details(Request $request){
+        $user = $this->getCurrentUser();
+        // $request = json_decode($request->userLocalStorage);
+        // if($request->shipping_details){
+        //     $user->shipping_details = json_encode($request->shipping_details);
+        // }
+        foreach ($request->all() as $data) {
+            # code...
+        }
+    }
+
 }
