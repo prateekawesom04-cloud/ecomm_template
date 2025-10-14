@@ -52,7 +52,7 @@ class UserController extends Controller
         $user->save();
 
         return response()->json([
-            'response'=> 'data updated successfully',
+            'response'=> 'Item updated successfully',
             'code'=>200
         ]);
 
@@ -60,13 +60,17 @@ class UserController extends Controller
 
     public function add_shipping_details(Request $request){
         $user = $this->getCurrentUser();
-        // $request = json_decode($request->userLocalStorage);
-        // if($request->shipping_details){
-        //     $user->shipping_details = json_encode($request->shipping_details);
-        // }
-        foreach ($request->all() as $data) {
-            # code...
+        $shipping_details = json_decode($request->shipping_details);
+        if($shipping_details->zip){
+            $user->shipping_details = json_encode($request->shipping_details);
         }
+        $user->save();
+        
+        return response()->json([
+            'response'=> 'Shipping details updated successfully',
+            'code'=>200
+        ]);
+
     }
 
 }

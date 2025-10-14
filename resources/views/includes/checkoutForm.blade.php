@@ -1,7 +1,7 @@
 
 <div class="my-3 billing_details">
     <h3 class="mb-3">Shipping Details</h3>
-    <form class="row contact_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
+    <form class="row shipping_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
         <div class="col-md-6 form-group p_star">
             <input type="text" class="form-control" id="first" name="fullname" />
             <span class="placeholder" data-placeholder="Full name"></span>
@@ -25,27 +25,28 @@
         </div>
         <div class="col-md-12 form-group p_star">
         <select class="form-control">
-            <option value="1">District</option>
-            <option value="2">District</option>
-            <option value="4">District</option>
+            <option value="District">District</option>
+            <option value="District">District</option>
+            <option value="District">District</option>
         </select>
         </div>
         <div class="col-md-12 form-group p_star">
         <select class="form-control">
-            <option value="1">State</option>
-            <option value="2">State</option>
-            <option value="4">State</option>
+            <option value="State">State</option>
+            <option value="State">State</option>
+            <option value="State">State</option>
         </select>
         </div>
-        <div class="col-md-12 form-group">
-        <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
+        <div class="col-md-12 form-group p_star">
+        <input type="text" class="form-control" id="zip" name="zip" />
+        <span class="placeholder" data-placeholder="Postcode/ZIP"></span>
         </div>
-        <div class="col-md-12 form-group">
-        {{-- <div class="creat_account">
-            <input type="checkbox" id="f-option2" name="selector" />
-            <label for="f-option2">Create an account?</label>
+        {{-- <div class="col-md-12 form-group">
+            <div class="creat_account">
+                <input type="checkbox" id="f-option2" name="selector" />
+                <label for="f-option2">Create an account?</label>
+            </div>
         </div> --}}
-        </div>
         <div class="col-md-12 form-group">
             <textarea class="form-control" name="message" id="message" rows="1"
             placeholder="Order Notes"></textarea>

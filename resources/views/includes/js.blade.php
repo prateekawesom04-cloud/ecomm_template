@@ -312,8 +312,10 @@
 
     let shipping_details = {};
     
+    @if($currentUser)
     @if($currentUser->shipping_details)
         shipping_details = JSON.parse(JSON.stringify({!!$currentUser->shipping_details!!}));
+    @endif
     @endif
 
     function storeShipping(){
@@ -323,14 +325,47 @@
     $('.shipping_details').click(function(){
 
         let formData = new FormData($(this).parents('form')[0]);
-        shipping_details[Object.keys(shipping_details).length] = Object.fromEntries(formData.entries());
-        console.log('formData---2---',shipping_details);
-        storeShipping();
+        let dataObject = Object.fromEntries(formData.entries());
+        let data = formData.entries();
+        shipping_details[Object.keys(shipping_details).length] = data;
 
-        callApi('post','{{route("post.update_shipping_details")}}',{userLocalStorage:userLocalStorageData});
+        for (const [key, value] of formData) {
+            console.log(`Key: ${key}, Value: ${value}`);
+            if(!value.length){
+                $(`input[name=${key}]`).val('please add');
+            }
+        }
+        
+        let form =  $('.shipping_form');
+
+        for(var i=0; i < form.elements.length; i++){
+            var e = form.elements[i];
+            if($(e).val() == ''){
+                exitLoop = false;
+                scrollToElement($(e));
+                return false;
+            }
+        }
+        // $(formData.entries()).each(function(i,j){
+        //     console.log(i,'this',j);
+            
+        // });
+
+        console.log('formData---2---',dataObject);
+        // storeShipping();
+
+        // callApi('post','{{route("post.update_shipping_details")}}',{shipping_details:shipping_details});
         
         // callApiFormData()
     });
+
+    
+    function scrollToElement(element){
+        $(element).parent().append('<div class="input_error text-red-600"></div>');
+        $(element).get(0).scrollIntoView({behavior: 'smooth'});
+        $(element).focus();
+        $(element).siblings('.input_error').html(`Please Enter ${$(element).attr('name')}`);
+    }
 
 
 </script>
