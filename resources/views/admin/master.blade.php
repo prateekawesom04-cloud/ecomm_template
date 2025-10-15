@@ -18,13 +18,11 @@
 </head>
 <body>
     <div class="app_body app_light flex flex-column relative" style="display:none;">
-            <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                @include('admin.includes.header')
-            </header>
+            @include('admin.includes.header')
             
             <div class="app_body_part container-fluid flex-1">
                 <div class="row h-full">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar" style="">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 hidden bg-light sidebar lg:flex flex-col" style="">
                         
                         <div class="p-4">
                             <div class="user_info_card">
@@ -61,6 +59,7 @@
     @include('admin.includes.ajaxCall')
     @include('includes.main_js')
     @include('admin.includes.js')
+    @include('includes.admin_js')
     @yield('js')
     
 </body>
