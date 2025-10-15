@@ -329,12 +329,6 @@
         let data = formData.entries();
         shipping_details[Object.keys(shipping_details).length] = data;
 
-        for (const [key, value] of formData) {
-            console.log(`Key: ${key}, Value: ${value}`);
-            if(!value.length){
-                $(`input[name=${key}]`).val('please add');
-            }
-        }
         
         let form =  $('.shipping_form');
 

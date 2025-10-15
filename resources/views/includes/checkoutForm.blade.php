@@ -20,10 +20,10 @@
         <span class="placeholder" data-placeholder="Address line"></span>
         </div>
         <div class="col-md-12 form-group p_star">
-        <input type="text" class="form-control" id="city" name="city" />
-        <span class="placeholder" data-placeholder="Town/City"></span>
+        <input type="text" class="form-control" id="area" name="area" />
+        <span class="placeholder" data-placeholder="Town/City/State"></span>
         </div>
-        <div class="col-md-12 form-group p_star">
+        {{-- <div class="col-md-12 form-group p_star">
         <select class="form-control">
             <option value="District">District</option>
             <option value="District">District</option>
@@ -36,10 +36,10 @@
             <option value="State">State</option>
             <option value="State">State</option>
         </select>
-        </div>
+        </div> --}}
         <div class="col-md-12 form-group p_star">
-        <input type="text" class="form-control" id="zip" name="zip" />
-        <span class="placeholder" data-placeholder="Postcode/ZIP"></span>
+        <input type="text" class="form-control" id="pincode" name="pincode" />
+        <span class="placeholder" data-placeholder="Pincode"></span>
         </div>
         {{-- <div class="col-md-12 form-group">
             <div class="creat_account">

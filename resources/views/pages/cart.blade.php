@@ -31,6 +31,7 @@
 
 
                 {{-- Checkout UserInfo Form --}}
+                @include('includes.addressCard')
                 @include('includes.checkoutForm')
             </div>
             <div class="col-md-4">
