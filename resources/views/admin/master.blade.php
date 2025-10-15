@@ -17,7 +17,7 @@
     @yield('head')
 </head>
 <body>
-    <div class="app_body app_light flex flex-column relative" style="display:none;">
+    <div class="app_body app_light flex flex-column relative h-[100vh]" style="display:none;">
             @include('admin.includes.header')
             
             <div class="app_body_part container-fluid flex-1">

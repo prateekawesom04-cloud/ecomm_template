@@ -31,7 +31,13 @@
 
 
                 {{-- Checkout UserInfo Form --}}
-                @include('includes.addressCard')
+
+                <div class="hidden">
+                    <h3 class="text-[18px]">Select Delivery Address</h3>
+                    <div class="address_cards">
+                    </div>
+                </div>
+
                 @include('includes.checkoutForm')
             </div>
             <div class="col-md-4">
@@ -122,6 +128,7 @@
     $(document).ready(function(){
         renderTable();
         updateCheckout();
+        renderAddress();
     });
     
 
@@ -139,6 +146,82 @@
         renderTable();
         updateCheckout();
     });
+
+    $('.shipping_details').click(function(){
+
+        let exitLoop = true;
+        let form =  document.getElementById('shipping_form');
+        let formData = new FormData(form);
+        // let formData = new FormData($(this).parents('form')[0]);
+        
+        let data = Object.fromEntries(formData);
+        
+        for(var i=0; i < form.elements.length; i++){
+            var e = form.elements[i];
+            if($(e).prop('required') && $(e).val() == ''){
+                exitLoop = false;
+                scrollToElement($(e));
+                return false;
+            }
+        }
+
+        shipping_details[data.phone] = data;
+
+        if(exitLoop){
+            
+            $(this).toggleClass('active');
+            storeShipping();
+            renderAddress();
+        }
+        
+    });
+    
+    $('body').on('click','.deleteAddress',function(){
+        deleteAddressItem($(this).attr('data-phone'));
+        renderAddress();
+    });
+
+    function createAddressCard(address_card){
+        html = ``;
+
+        html += `
+            <div class="address_card card flex flex-row justify-center relative p-[0.7rem] m-[0.7rem] mb-0 gap-3 rounded-xl">
+                <div class="choose_btn">
+                    <input type="radio" id="f-option5" name="add_select">
+                </div>
+                <div class="user_address text-start flex-1 flex flex-col">
+                    <h4 class="mb-1">${address_card.fullname}</h4>
+                    <span class="mb-1">Address: ${address_card.address}</span>
+                    <span class="mb-1">Pincode: ${address_card.pincode}</span>
+                    <span class="mb-1">Phone Number: ${address_card.phone}</span>
+                </div>
+                <div class="mb-1 flex flex-col gap-2">
+                    <a href="javascript:void(0)" data-phone="${address_card.phone}" class="deleteAddress">Delete</a>
+                </div>
+            </div>
+        `;
+
+        return html;
+    }
+
+    function renderAddress(){
+        $('.address_cards').html('');
+        let delivery_addresses = JSON.parse(localStorage.getItem('shipping_details'));
+        delivery_addresses = getLocalStorage('shipping_details');
+
+        if(!Object.keys(delivery_addresses).length){
+             $('.billing_details').show();
+            return false;
+            
+        }
+        $.each(delivery_addresses,function(i,j){
+            
+            $('.address_cards').append(createAddressCard(j));
+        });
+        
+        $('.address_cards').parent().show();
+    }
+        
 
 </script>
 

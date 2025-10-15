@@ -1,26 +1,26 @@
 
-<div class="my-3 billing_details">
+<div class="my-3 billing_details hidden">
     <h3 class="mb-3">Shipping Details</h3>
-    <form class="row shipping_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
+    <form id="shipping_form" class="row shipping_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
         <div class="col-md-6 form-group p_star">
-            <input type="text" class="form-control" id="first" name="fullname" />
+            <input type="text" class="form-control" id="first" name="fullname" required />
             <span class="placeholder" data-placeholder="Full name"></span>
         </div>
         
         <div class="col-md-6 form-group p_star">
-        <input type="text" class="form-control" id="number" name="number" />
+        <input type="text" class="form-control" id="number" name="phone" maxlength="10" required />
         <span class="placeholder" data-placeholder="Phone number"></span>
         </div>
         <div class="col-md-6 form-group p_star">
-        <input type="text" class="form-control" id="email" name=" email" />
+        <input type="text" class="form-control" id="email" name=" email" required />
         <span class="placeholder" data-placeholder="Email Address"></span>
         </div>
         <div class="col-md-12 form-group p_star">
-        <input type="text" class="form-control" id="add1" name="address" />
+        <input type="text" class="form-control" id="add1" name="address" required />
         <span class="placeholder" data-placeholder="Address line"></span>
         </div>
         <div class="col-md-12 form-group p_star">
-        <input type="text" class="form-control" id="area" name="area" />
+        <input type="text" class="form-control" id="area" name="area" required />
         <span class="placeholder" data-placeholder="Town/City/State"></span>
         </div>
         {{-- <div class="col-md-12 form-group p_star">
@@ -38,7 +38,7 @@
         </select>
         </div> --}}
         <div class="col-md-12 form-group p_star">
-        <input type="text" class="form-control" id="pincode" name="pincode" />
+        <input type="text" class="form-control" id="pincode" name="pincode" required />
         <span class="placeholder" data-placeholder="Pincode"></span>
         </div>
         {{-- <div class="col-md-12 form-group">
