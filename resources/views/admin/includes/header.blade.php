@@ -1,6 +1,6 @@
 
 <header class="navbar-dark flex flex-row justify-between sticky-top bg-dark">
-  <button class="navbar-toggler d-md-none" type="button">
+  <button class="navbar-toggler d-md-none app_toggler" data-appToggle="sidebarMenu" type="button">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
