@@ -1,5 +1,5 @@
 
-<div class="my-3 billing_details hidden">
+<div class="my-3 billing_details !hidden">
     <h3 class="mb-3">Shipping Details</h3>
     <form id="shipping_form" class="row shipping_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
         <div class="col-md-6 form-group p_star">
@@ -51,6 +51,6 @@
             <textarea class="form-control" name="message" id="message" rows="1"
             placeholder="Order Notes"></textarea>
         </div>
-        <a href="javascript:void(0)" class="btn_3 mx-auto shipping_details">Add Details</a>
+        <a href="javascript:void(0)" class="btn_3 mx-auto shipping_details active">Add Details</a>
     </form>
 </div>

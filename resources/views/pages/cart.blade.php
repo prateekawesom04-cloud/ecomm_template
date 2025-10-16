@@ -3,7 +3,7 @@
 @section('body')
 
   <!--================Cart Area =================-->
-  <section class="cart_area pt-5">
+  <section class="cart_area py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -32,12 +32,14 @@
 
                 {{-- Checkout UserInfo Form --}}
 
-                <div class="hidden">
-                    <h3 class="text-[18px]">Select Delivery Address</h3>
-                    <div class="address_cards">
-                    </div>
+                <div class="flex justify-end">
+                    <a href="javascript:void(0)" class="btn_3 my-2 showAddressForm">Add Address</a>
                 </div>
-
+                <div class="address_cards hidden">
+                </div>
+                <div class="">
+                    {{-- <h3 class="text-[18px]">Select Delivery Address</h3> --}}
+                </div>
                 @include('includes.checkoutForm')
             </div>
             <div class="col-md-4">
@@ -75,9 +77,9 @@
                     </td>
                     <td>
                         <div class="product_count" data-product_id="${product.product_id}">
-                            <span data-counter="-1" class="cart_counter number-decrement"> <i class="ti-minus"></i></span>
+                            <span data-counter="-1" class="cart_counter"> <i class="ti-minus"></i></span>
                             <input class="input-number cart_count" type="text" value="${product.quantity}" min="0">
-                            <span data-counter="1" class="cart_counter number-increment"> <i class="ti-plus"></i></span>
+                            <span data-counter="1" class="cart_counter"> <i class="ti-plus"></i></span>
                         </div>
                     </td>
                     <td>
@@ -128,7 +130,10 @@
     $(document).ready(function(){
         renderTable();
         updateCheckout();
-        renderAddress();
+        if(Object.keys(shipping_details).length){
+            $('.address_cards').toggleClass('hidden');
+            renderAddress();
+        }
     });
     
 
@@ -138,11 +143,17 @@
         updateCheckout();
     });
 
-    $('body').on('click','.cart_counter',function(){
-        let product_id = $('.product_count').attr('data-product_id');
-        $(this).siblings('.cart_count').val(parseInt($(this).siblings('.cart_count').val())+parseInt($(this).attr('data-counter')));
+    $('body').on('click','.cart_counter',async function(){
+        let count = parseInt($(this).siblings('.cart_count').val())+parseInt($(this).attr('data-counter'));
+        console.log('count---',count);
+        
+        if(count<1){
+            return false;
+        }
+        let product_id = $(this).parents('.product_count').attr('data-product_id');
+        $(this).siblings('.cart_count').val(count);
         userLocalStorage.cart[product_id]['quantity'] = $(this).siblings('.cart_count').val();
-        setUserLocalStorage();
+        await setUserLocalStorage();
         renderTable();
         updateCheckout();
     });
@@ -172,6 +183,10 @@
             $(this).toggleClass('active');
             storeShipping();
             renderAddress();
+            
+            $('.billing_details').toggleClass('!hidden');
+            $('.showAddressForm').toggleClass('!hidden');
+            $('.address_cards').toggleClass('hidden');
         }
         
     });
@@ -179,6 +194,14 @@
     $('body').on('click','.deleteAddress',function(){
         deleteAddressItem($(this).attr('data-phone'));
         renderAddress();
+    });
+
+    $('.showAddressForm').click(function(){
+        $(this).toggleClass('!hidden');
+        $('.billing_details').toggleClass('!hidden');
+        $('.shipping_details').toggleClass('active');  
+        $('.billing_details').find('input').val(''); 
+        $('.address_cards').toggleClass('hidden');
     });
 
     function createAddressCard(address_card){
@@ -219,7 +242,6 @@
             $('.address_cards').append(createAddressCard(j));
         });
         
-        $('.address_cards').parent().show();
     }
         
 

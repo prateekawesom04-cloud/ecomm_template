@@ -279,14 +279,19 @@
         
     });
 
-    $('.cart_counter').click(function(){
-        @if($currentUser)
-        let productInfo = $(this).parents('.productInfo');
-        let product_id = $(productInfo).attr('data-product_id');
-        userLocalStorage.cart[product_id]['quantity'] = $('.cart_count').val();
-        setUserLocalStorage();
-        @endif
-    });
+    // $('.cart_counter').click(function(){
+    //     @if($currentUser)
+    //     let productInfo = $(this).parent();
+    //     let product_id = $(productInfo).attr('data-product_id');
+    //     let count = $('.cart_count').val()+$(this).attr('data-counter');
+    //     if(count<1){
+    //         return false;
+    //     }
+    //     $(productInfo).find('.cart_count').val(count);
+    //     userLocalStorage.cart[product_id]['quantity'] = $('.cart_count').val();
+    //     setUserLocalStorage();
+    //     @endif
+    // });
 
     function deleteCartItem(product_id){
         delete userLocalStorage.cart[product_id];
