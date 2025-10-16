@@ -300,6 +300,11 @@
         responseToast('Removed from Favourites');
     }
 
+    function deleteAddressItem(phone){
+        delete shipping_details[phone];
+        storeShipping();
+        responseToast('Removed from Address List');
+    }
 
     $(document).ready(function(){
         if(localStorage.getItem('userLocalStorage')){
@@ -313,42 +318,17 @@
         let shipping_details = {};
         
         @if($currentUser)
-        @if($currentUser->shipping_details)
-            shipping_details = JSON.parse(JSON.stringify({!!$currentUser->shipping_details!!}));
-        @endif
+            @if($currentUser->shipping_details)
+                shipping_details = JSON.parse(JSON.stringify({!!$currentUser->shipping_details!!}));
+                localStorage.setItem('shipping_details',JSON.stringify(shipping_details));
+            @endif
         @endif
 
         function storeShipping(){
             localStorage.setItem('shipping_details',JSON.stringify(shipping_details));
-            callApi('post','{{route("post.update_shipping_details")}}',{shipping_details:shipping_details},ajaxResponse);
+            callApi('post','{{route("post.update_shipping_details")}}',{shipping_details:JSON.stringify(shipping_details)},ajaxResponse);
         }
 
-        $('.shipping_details').click(function(){
-
-            let exitLoop = true;
-            let form =  document.getElementById('shipping_form');
-            let formData = new FormData(form);
-            // let formData = new FormData($(this).parents('form')[0]);
-            
-            let data = Object.fromEntries(formData);
-            
-            for(var i=0; i < form.elements.length; i++){
-                var e = form.elements[i];
-                if($(e).prop('required') && $(e).val() == ''){
-                    exitLoop = false;
-                    scrollToElement($(e));
-                    return false;
-                }
-            }
-
-            shipping_details[data.phone] = data;
-
-            if(exitLoop){
-                
-                storeShipping();
-            }
-            
-        });
 
         
         function scrollToElement(element){
@@ -366,9 +346,9 @@
 
     // Shipping details data
 
-        $('input').on('keyup',function(){
-            $('.input_error').hide();
-            $('.input_error').remove();
-        });
+    $('input').on('keyup',function(){
+        $('.input_error').hide();
+        $('.input_error').remove();
+    });
 
 </script>

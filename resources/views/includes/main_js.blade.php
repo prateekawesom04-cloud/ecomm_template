@@ -20,9 +20,9 @@
     
     function ajaxResponse(response){
         if(response.code==200){
-            responseToast(response.message,'bg-success');
+            responseToast(response.response,'bg-success');
         } else{
-            responseToast(response.message,'bg-warning');
+            responseToast(response.response,'bg-warning');
         }
     }
 

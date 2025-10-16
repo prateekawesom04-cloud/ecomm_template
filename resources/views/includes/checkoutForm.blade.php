@@ -1,5 +1,5 @@
 
-<div class="my-3 billing_details">
+<div class="my-3 billing_details hidden">
     <h3 class="mb-3">Shipping Details</h3>
     <form id="shipping_form" class="row shipping_form" action="{{route('post.update_shipping_details')}}" method="post" novalidate="novalidate">
         <div class="col-md-6 form-group p_star">
