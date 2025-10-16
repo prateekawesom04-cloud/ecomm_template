@@ -22,7 +22,7 @@
             
             <div class="app_body_part container-fluid flex-1">
                 <div class="row h-full">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar" style="">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 hidden bg-light sidebar" style="">
                         
                         <div class="p-4">
                             <div class="user_info_card">
@@ -59,6 +59,7 @@
     @include('admin.includes.ajaxCall')
     @include('includes.main_js')
     @include('admin.includes.js')
+    @include('includes.admin_js')
     @yield('js')
     
 </body>

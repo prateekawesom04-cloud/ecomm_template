@@ -1,12 +1,12 @@
 <script>
     //index.js
 
-let menuicn = document.querySelector(".menuicn");
-let nav = document.querySelector(".navcontainer");
+// let menuicn = document.querySelector(".menuicn");
+// let nav = document.querySelector(".navcontainer");
 
-menuicn.addEventListener("click", () => {
-    nav.classList.toggle("navclose");
-});
+// menuicn.addEventListener("click", () => {
+//     nav.classList.toggle("navclose");
+// });
 
 
 $('.app_toggler').on('click',function(){
