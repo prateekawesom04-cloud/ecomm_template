@@ -62,7 +62,7 @@ h1 {
     box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #f7f8ff;
     padding: 2rem 5rem;
     border-radius: 0.6rem;
-    width: min-content;
+    width: 100%;
     margin: 0 auto;
 }
 
