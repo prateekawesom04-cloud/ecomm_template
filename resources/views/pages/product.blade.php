@@ -63,7 +63,28 @@
   @include('includes.p_description')
 
   @include('includes.bestSellers')
+  
+  @include('includes.imageModel')
 
 </div>
+
+@endsection
+
+@section('js')
+
+  <script>
+    $('img').click(function(){
+      
+      let imageSrc = $(this).attr('src');
+      console.log('imageSrc------',imageSrc);
+      $('.imageModel').show();
+      $('.imageModel').find('img').attr('src',imageSrc);
+    });
+    
+    $('.btn-close').click(()=>{
+        $('.imageModel').hide();
+    });
+
+  </script>
 
 @endsection

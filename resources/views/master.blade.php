@@ -51,7 +51,9 @@
     
     </div>
     @include('includes.loader')
+    @if(!$currentUser)
     @include('includes.appModal')
+    @endif
     @include('includes.app_toast')
     
     <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
@@ -64,7 +66,7 @@
     <script src="{{asset('js/swiper.min.js')}}"></script>
     <script src="{{asset('js/masonry.pkgd.js')}}"></script>
     <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/jquery.nice-select.min.js')}}"></script>
+    {{-- <script src="{{asset('js/jquery.nice-select.min.js')}}"></script> --}}
     <script src="{{asset('js/slick.min.js')}}"></script>
     <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
     <script src="{{asset('js/waypoints.min.js')}}"></script>

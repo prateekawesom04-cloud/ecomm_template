@@ -123,6 +123,18 @@ input, input:hover, input:focus {
     z-index: 999;
 }
 
+.imageModel {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
 .app_scroll_arrow_section {
     z-index: 999;
 }
@@ -200,4 +212,12 @@ input, input:hover, input:focus {
     line-height: 15px;
     font-size: 10px;
     color: #fff;
+}
+
+.zoom {
+  transform: scale(1.5); 
+}
+
+.zoom:hover {
+  transform: scale(1.5); 
 }

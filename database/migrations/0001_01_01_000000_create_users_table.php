@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('role');
             $table->json('favourites')->nullable();
             $table->json('cart')->nullable();
+            $table->json('shipping_details')->nullable();
             $table->string('password');
             $table->dateTime('last_login')->nullable();
             $table->json('additional_data')->nullable();
