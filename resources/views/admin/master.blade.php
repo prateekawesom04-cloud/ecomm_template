@@ -18,9 +18,7 @@
 </head>
 <body>
     <div class="app_body app_light flex flex-column relative" style="display:none;">
-            <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                @include('admin.includes.header')
-            </header>
+            @include('admin.includes.header')
             
             <div class="app_body_part container-fluid flex-1">
                 <div class="row h-full">
