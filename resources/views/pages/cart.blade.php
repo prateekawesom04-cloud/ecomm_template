@@ -31,7 +31,12 @@
 
 
                 {{-- Checkout UserInfo Form --}}
-                @include('includes.addressCard')
+
+                <div class="address_cards">
+                    <h3>Select Delivery Address</h3>
+                    @include('includes.addressCard')
+                </div>
+
                 @include('includes.checkoutForm')
             </div>
             <div class="col-md-4">
@@ -139,6 +144,40 @@
         renderTable();
         updateCheckout();
     });
+
+    
+    function createAddressCard(address_card){
+        html = ``;
+
+        html += `
+            <div class="address_card card flex flex-row justify-center relative p-[0.7rem] m-[0.7rem] mb-0 gap-3 rounded-xl">
+                <div class="choose_btn">
+                    <input type="radio" id="f-option5" name="add_select">
+                </div>
+                <div class="user_address text-start flex-1">
+                    <h4 class="mb-1">User Name</h4>
+                    <span class="mb-1">Address</span>
+                    <span class="mb-1">Phone Number: ${address_card.fullname}</span>
+                    <div class="mb-1 flex flex-row gap-2">
+                        <a href="javascript:void(0)" class="">Edit</a>
+                        <a href="javascript:void(0)" class="">Delete</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    let delivery_addresses = JSON.parse(localStorage.getItem('shipping_details'));
+
+    console.log('shipping_details---',shipping_details);
+    console.log('shipping_details length---',Object.keys(shipping_details).length);
+    
+    $(shipping_details).each(function(i,j){
+        console.log(i,'----shipping_details ---- ',j);
+        
+        $('.address_cards').append(createAddressCard(j));
+    });
+        
 
 </script>
 

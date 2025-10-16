@@ -4813,6 +4813,23 @@ ul {
 }
 
 /* line 1466, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
+
+.p_star input + .placeholder {
+  display: none;
+}
+
+.p_star input:required:invalid + .placeholder {
+  display: block;
+}
+
+/* .p_star input:required + .placeholder {
+  display: block;
+} */
+
+.p_star input:required:focus + .placeholder {
+  display: none;
+}
+
 .p_star input:focus + .placeholder {
   display: none;
 }

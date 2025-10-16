@@ -1,10 +1,9 @@
-<div class="card">
-    <h3>Delivery Address</h3>
-    <div class="address_card flex flex-row items-center justify-center">
-        <div class="choose_btn">
 
+    <div class="address_card card flex flex-row justify-center relative p-[0.7rem] m-[0.7rem] mb-0 gap-3 rounded-xl">
+        <div class="choose_btn">
+            <input type="radio" id="f-option5" name="selector">
         </div>
-        <div class="user_address text-start">
+        <div class="user_address text-start flex-1">
             <h4 class="mb-1">User Name</h4>
             <span class="mb-1">Address</span>
             <span class="mb-1">Phone Number: 9898989898</span>
@@ -13,6 +12,4 @@
                 <a href="javascript:void(0)" class="">Delete</a>
             </div>
         </div>
-
     </div>
-</div>
